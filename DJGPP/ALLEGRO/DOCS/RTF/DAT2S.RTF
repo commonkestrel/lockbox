@@ -1,0 +1,62 @@
+{\rtf\ansi\deff0\widowctrl \f0\fs20 
+{\colortbl;\red0\green0\blue0;\red255\green0\blue0;\red0\green255\blue0;\red0\green0\blue255;}
+{\fonttbl{\f0\froman\fcharset0\fprq2 Times New Roman;}
+{\f1\fmodern\fcharset0\fprq1 Courier New;}
+{\f2\froman\fcharset2\fprq2 Symbol;}}
+{\stylesheet {\widctlpar \f0\fs20 \snext0 Normal;}
+{\s1\widctlpar \f1\fs18 \sbasedon0\snext1 Quotation;}
+{\s2\widctlpar \f0\fs48\sa600\pagebb\keepn\ul \sbasedon0\snext2 Heading 1;}
+{\s3\widctlpar \f0\fs24\sb200\keepn\sa200\b \sbasedon0\snext3 Heading 2;}
+{\s4\widctlpar \f0\fs20\tqc\tx4153\tqr\tx8306 \sbasedon0\snext4 Header;}
+{\s5\widctlpar \f0\fs24\tqr\tldot\tx8640 \sbasedon0\snext0 TOC 1;}
+{\s6\widctlpar \f0\fs20\tqr\tldot\tx8640 \sbasedon0\snext0 Index 1;}}
+\par \par \par {\qc {\f0\fs48 {\b \par The dat2s utility 
+\par}\par}\par}\brdrb\brdrs\brdrw15\brsp20 \par \pard \par 
+\par {\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v Compiling Datafiles to Assembler}Compiling Datafiles to Assembler\par }
+\par \par The utility dat2s can be used to convert a datafile into an asm (.s) source 
+file, which can then be assembled and linked into your program. This avoids 
+the need for a separate datafile to accompany your program, and means the 
+data will automatically be loaded into memory at startup. You should be 
+aware, though, that large datafiles can take a long time to compile, and 
+that it is not possible to compress data which is compiled in this way. 
+\par \par The simplest way to invoke dat2s is with the command: 
+\par \par dat2s filename.dat -o output.s 
+\par \par The resulting asm file can then be assembled with the command: 
+\par \par gcc -c output.s 
+\par \par This will produce an object module called output.o, which can be linked into 
+your program, for example: 
+\par \par gcc myprog.c -o myprog.exe output.o -lalleg 
+\par \par Your program can then access the contents of the datafile as simple global 
+variables. Definitions for these variables can be obtained by telling dat2s 
+to output a header file as well as the asm file, with the '-h' option. You 
+can also use '-p' to set a prefix string for all the object names. For 
+example, when applied to the datafile: 
+\par \par "BMP"  - A_BITMAP 
+"BMP"  - ANOTHER_BITMAP 
+"SAMP" - EXPLODE 
+"PAL"  - SOME_COLORS 
+"FONT" - THE_FONT 
+\par \par the command: 
+\par \par dat2s filename.dat -o output.s -h output.h -p item 
+\par \par produces the header: 
+\par \par extern BITMAP item_a_bitmap; 
+extern BITMAP item_another_bitmap; 
+extern SAMPLE item_explode; 
+extern PALETTE item_some_colors; 
+extern FONT item_the_font; 
+extern DATAFILE item_data[]; 
+\par \par You can refer to these objects directly, for example: 
+\par \par blit(&item_a_bitmap, screen, 0, 0, 0, 0, SCREEN_W, SCREEN_H); 
+\par \par Alternatively, you can use the datafile array for compatibility with code 
+that was originally written for separately loaded datafiles, with the 
+standard syntax item_data[index].dat. 
+\par \par If your datafile contains truecolor images, be sure to call fixup_datafile() 
+after you have set the graphics mode. You must also call fixup_datafile() 
+if your platform does not support constructors (currently any non GCC-based 
+platform). 
+\par \par Note that compiled sprites are not supported and will cause dat2s to 
+abort whenever it encounters one of them. However you can use the '-S' 
+option to instruct dat2s to convert them to regular BITMAP objects. 
+\par \par Note that datafiles compiled by dat2s must not be appended to shared objects, 
+only to standalone executables. Use dat2c for this purpose. 
+\par \par \par \par \par \par \par \par }

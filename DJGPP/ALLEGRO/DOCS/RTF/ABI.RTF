@@ -1,0 +1,124 @@
+{\rtf\ansi\deff0\widowctrl \f0\fs20 
+{\colortbl;\red0\green0\blue0;\red255\green0\blue0;\red0\green255\blue0;\red0\green0\blue255;}
+{\fonttbl{\f0\froman\fcharset0\fprq2 Times New Roman;}
+{\f1\fmodern\fcharset0\fprq1 Courier New;}
+{\f2\froman\fcharset2\fprq2 Symbol;}}
+{\stylesheet {\widctlpar \f0\fs20 \snext0 Normal;}
+{\s1\widctlpar \f1\fs18 \sbasedon0\snext1 Quotation;}
+{\s2\widctlpar \f0\fs48\sa600\pagebb\keepn\ul \sbasedon0\snext2 Heading 1;}
+{\s3\widctlpar \f0\fs24\sb200\keepn\sa200\b \sbasedon0\snext3 Heading 2;}
+{\s4\widctlpar \f0\fs20\tqc\tx4153\tqr\tx8306 \sbasedon0\snext4 Header;}
+{\s5\widctlpar \f0\fs24\tqr\tldot\tx8640 \sbasedon0\snext0 TOC 1;}
+{\s6\widctlpar \f0\fs20\tqr\tldot\tx8640 \sbasedon0\snext0 Index 1;}}
+\par {\s1 \f1\fs18 
+\par      ______   ___    ___
+\par     /\\  _  \\ /\\_ \\  /\\_ \\
+\par     \\ \\ \\L\\ \\\\//\\ \\ \\//\\ \\      __     __   _ __   ___ 
+\par      \\ \\  __ \\ \\ \\ \\  \\ \\ \\   /'__`\\ /'_ `\\/\\`'__\\/ __`\\
+\par       \\ \\ \\/\\ \\ \\_\\ \\_ \\_\\ \\_/\\  __//\\ \\L\\ \\ \\ \\//\\ \\L\\ \\
+\par        \\ \\_\\ \\_\\/\\____\\/\\____\\ \\____\\ \\____ \\ \\_\\\\ \\____/
+\par         \\/_/\\/_/\\/____/\\/____/\\/____/\\/___L\\ \\/_/ \\/___/
+\par                                        /\\____/
+\par                                        \\_/__/
+\par 
+\par 
+\par                 ABI compatibility information.
+\par 
+\par          See readme.txt for a more general overview.
+\par }\par {\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v Introduction}Introduction\par }
+Once Allegro 4.2 is released, we plan to maintain backward compatibility 
+at the Application Binary Interface level for the subsequent releases of 
+the 4.2.x series. For example, that means you will be able to use an 
+executable compiled using version 4.2.0 with version 4.2.5 or 4.2.41 of 
+the dynamically linked library. 
+\par \par However, there are some guidelines (rules) you should (must) follow, 
+otherwise things will not work, and you will get angry emails from 
+users and from us. 
+\par \par Note: ABI compatibility will only be _actively_ maintained for: 
+\par {\li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 Windows on x86 
+{\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 Linux on x86 
+{\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 Linux on x86-64 
+{\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 MacOS X on PowerPC 
+\par}\pard \li0 \pard \li0 \pard \li0 \pard \li0 \par \par \par We will not be maintaining "forwards compatibility", meaning that 
+programs compiled with a newer release of Allegro may not necessarily 
+run on a target system which has an older release of Allegro installed. 
+You would have to upgrade the Allegro DLL on the target system.  While 
+we will try to minimise these kinds of forced upgrades, it should give 
+us more flexibility within the stable series. 
+\par {\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v Windows notes}Windows notes\par }
+If you don't need a modified version of Allegro then just link your 
+program against an officially blessed non-WIP, non-SVN, non-dodgy 
+version. Don't disable any features (eg. colour depths, drivers) in 
+the DLL. 
+\par \par If you require a modified version of Allegro, then please either 
+statically link, or pick a non-standard name for the Allegro DLL. 
+For example, don't distribute a modified version of Allegro under a 
+name such as all42.dll or alleg42.dll. Instead, call it something 
+like alcustom.dll. Even better, statically link. 
+\par \par For the people who use vanilla Allegro, we will provide a set of 
+"reference" DLLs. If your binary works with those then everything is 
+fine. If you want to distribute Allegro DLLs with your program 
+(usually a good idea), we recommend you distribute our DLLs instead 
+of ones you compiled yourself. 
+\par {\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v Linux on x86 notes}Linux on x86 notes\par }
+To make sure an Allegro binary compiled on your machine will work on 
+another machine, do not disable any "features" with `configure'. Your 
+copy of Allegro must have assembly routines, threads, modules, all 
+colour depths and X11 support enabled, amongst other things. If in 
+doubt, leave it at the default setting. 
+\par \par When you are ready to distribute your binary, run "ldd <mybinary>". 
+It should say something like: 
+\par \par liballeg.so.4.2 => /usr/local/lib/liballeg.so.4.2 (0xdeadbeaf) 
+\par \par It should NOT say: 
+\par \par liballeg.so.4.2.0 => /usr/local/lib/liballeg.so.4.2.0 (0xdeadbeaf) 
+\par \par If you see the latter, that would mean users with later versions of 
+Allegro would not be able to run your binary. 
+\par \par See also the Windows section if you need to use a modified version of 
+Allegro. 
+\par \par For people packaging Allegro for redistribution: Drivers that are 
+built as dynamically loaded modules may be disabled or left out, but 
+all others should be left in. Examples of drivers that are _not_ 
+dynamically loaded include: OSS digital sound and OSS MIDI. In 
+short, if a program built against a copy of default-options Allegro 
+will work with your final library it should be fine. 
+\par {\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v Linux on x86-64 notes}Linux on x86-64 notes\par }
+The situation is basically the same as for Linux on x86, however 
+your copy of Allegro must NOT have assembly routines enabled (it 
+wouldn't work anyhow). 
+\par {\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v MacOS X notes}MacOS X notes\par }
+On OSX there are two 'styles' of linking - Unix style and Mac style. 
+For the Unix style linking, you would use `allegro-config --libs` 
+on the link line. For versioning, follow the advice given in the 
+'Linux on x86' section above, using the command otool -L instead 
+of ldd. 
+\par \par For example, otool -L <mybinary> should give 
+\par \par liballeg-4.2.dylib (compatibility version 4.2.0, current version 4.2.0) 
+\par \par For the Mac style, use `allegro-config --frameworks` on the link 
+line, or add Allegro.framework to your project if you are using 
+XCode. In this case, the versioning is done inside the framework 
+itself. 
+\par \par Apple recommends that an application should be entirely self- 
+contained. To achieve this in Allegro, static-link the executable 
+and use fixbundle to bind all its resources together. In this 
+way, you will not need to worry about incompatible versions of 
+the library. This is useful if you are distributing an application. 
+\par \par There is a known compatibility problem when using gcc 4 on MacOS X 10.4 
+that prevents binaries from working on older versions of MacOS X. While it 
+is anticipated that a future update from Apple will fix this problem, you 
+can use gcc 3 to work around it. 
+\par {\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v Final notes}Final notes\par }
+Providing source is still better than not providing source. Binaries 
+are good, however, if your code sucks and only you (with the help of 
+witchcraft) can compile it. 
+\par \par If you provided binaries in the past using WIP versions of Allegro, 
+we politely request that you recompile your program using a stable 
+version of Allegro. 
+\par \par \par \par }

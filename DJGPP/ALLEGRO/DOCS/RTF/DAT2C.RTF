@@ -1,0 +1,80 @@
+{\rtf\ansi\deff0\widowctrl \f0\fs20 
+{\colortbl;\red0\green0\blue0;\red255\green0\blue0;\red0\green255\blue0;\red0\green0\blue255;}
+{\fonttbl{\f0\froman\fcharset0\fprq2 Times New Roman;}
+{\f1\fmodern\fcharset0\fprq1 Courier New;}
+{\f2\froman\fcharset2\fprq2 Symbol;}}
+{\stylesheet {\widctlpar \f0\fs20 \snext0 Normal;}
+{\s1\widctlpar \f1\fs18 \sbasedon0\snext1 Quotation;}
+{\s2\widctlpar \f0\fs48\sa600\pagebb\keepn\ul \sbasedon0\snext2 Heading 1;}
+{\s3\widctlpar \f0\fs24\sb200\keepn\sa200\b \sbasedon0\snext3 Heading 2;}
+{\s4\widctlpar \f0\fs20\tqc\tx4153\tqr\tx8306 \sbasedon0\snext4 Header;}
+{\s5\widctlpar \f0\fs24\tqr\tldot\tx8640 \sbasedon0\snext0 TOC 1;}
+{\s6\widctlpar \f0\fs20\tqr\tldot\tx8640 \sbasedon0\snext0 Index 1;}}
+\par \par \par {\qc {\f0\fs48 {\b \par The dat2c utility 
+\par}\par}\par}\brdrb\brdrs\brdrw15\brsp20 \par \pard \par 
+\par {\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v Contents}Contents\par }
+\par 
+{\field{\*\fldinst TOC \\t "Heading 1" }{\fldrslt {\b\i\ul\fs24\cf2 Update this field to generate the table of contents.}}}
+\par {\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v Introduction}Introduction\par }
+\par \par The utility dat2c can be used in much the same way as dat2s, above, except 
+that it writes C code rather than assembler. This has the advantage that it 
+is portable - you can compile it anywhere you can use Allegro. 
+\par {\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v Commandline Options}Commandline Options\par }
+\par \par Each option may appear only once. To specify which datafile to convert, 
+give the filename without a preceding option. 
+\par \par --cfile, -o 
+Arguments: filename 
+\par \par Gives the name of the C source file to output. Won't add a .c 
+extension, even if you don't specify one. By default, dat2c will 
+write to stdout. 
+\par \par --hfile, -h 
+Arguments: filename 
+\par \par Gives the name of the C header file to output. Won't add a .h 
+extension, even if you don't specify one. 
+\par \par --prefix, -p 
+Arguments: prefix (must be a valid macro name) 
+\par \par If you specify a prefix, then this will be used when constructing a 
+macro name for each object in the datafile. This is the same as the 
+grabber; if you don't specify a prefix, the macro name is simply 
+<obj_name>, but if you do, then the macro name becomes 
+<prefix>_<obj_name> . 
+\par \par --crlf, -C 
+Arguments: none 
+\par \par Forces the file to be output in CRLF (DOS) format. This is the 
+default on DOS/Windows platforms. 
+\par \par --unix, -U 
+Arguments: none 
+\par \par Sets the output to be in Unix (LF only) text format. This is the 
+default on non-DOS non-Mac platforms. 
+\par \par --mac, -M 
+Arguments: none 
+\par \par Sets the output to be in Macintosh (CR only) text format. This is 
+the default on Mac platforms. 
+\par \par --global, -g 
+Arguments: none 
+\par \par Specifies that the objects should be globally visible (default is 
+for objects to be local to the compilation unit). If they are 
+globally visible, then you can refer to them in your code. 
+\par \par --convert-compiled-sprites, -S 
+Arguments: none 
+\par \par (See note below for more info on compiled sprites). Tells dat2c to 
+convert any compiled sprite objects it finds into bitmap objects. 
+More a convenience feature for lazy people :-) 
+\par \par --datafile-name, -n 
+Arguments: C identifier 
+\par \par By default, the datafile is exported as: 
+PREFIX_data 
+or  data 
+But with this option, you can change 'data' to be something else. 
+\par {\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v Notes}Notes\par }
+- If your datafile contains truecolor images, be sure to call 
+fixup_datafile() after you have set the graphics mode. You must 
+also call fixup_datafile() if your platform does not support 
+constructors (currently any non GCC-based platform). 
+\par \par - Compiled sprites are *not* supported (but see the commandline option 
+--convert-compiled-sprites , above). This is because Allegro silently 
+switches to an RLE_SPRITE implementation on platforms which don't 
+support compiled sprites, and to get dat2c to implement that behaviour 
+would be more effort than it is worth (especially since you can just 
+call get_compiled_sprite() anyway!). 
+\par \par }

@@ -1,0 +1,528 @@
+{\rtf\ansi\deff0\widowctrl \f0\fs20 
+{\colortbl;\red0\green0\blue0;\red255\green0\blue0;\red0\green255\blue0;\red0\green0\blue255;}
+{\fonttbl{\f0\froman\fcharset0\fprq2 Times New Roman;}
+{\f1\fmodern\fcharset0\fprq1 Courier New;}
+{\f2\froman\fcharset2\fprq2 Symbol;}}
+{\stylesheet {\widctlpar \f0\fs20 \snext0 Normal;}
+{\s1\widctlpar \f1\fs18 \sbasedon0\snext1 Quotation;}
+{\s2\widctlpar \f0\fs48\sa600\pagebb\keepn\ul \sbasedon0\snext2 Heading 1;}
+{\s3\widctlpar \f0\fs24\sb200\keepn\sa200\b \sbasedon0\snext3 Heading 2;}
+{\s4\widctlpar \f0\fs20\tqc\tx4153\tqr\tx8306 \sbasedon0\snext4 Header;}
+{\s5\widctlpar \f0\fs24\tqr\tldot\tx8640 \sbasedon0\snext0 TOC 1;}
+{\s6\widctlpar \f0\fs20\tqr\tldot\tx8640 \sbasedon0\snext0 Index 1;}}
+\par {\qc {\f0\fs48 {\b \par The Allegro FAQ\par 
+{\i If the answer isn't here, ask and it will be added...\par}\par}\par}\par}
+{\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v Contents}Contents\par }
+\par 
+{\field{\*\fldinst TOC \\t "Heading 1" }{\fldrslt {\b\i\ul\fs24\cf2 Update this field to generate the table of contents.}}}
+\par \par \par {\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v Trivial problems}Trivial problems\par }
+\par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v What_is_Allegro_}   What is Allegro?\par }
+{\li400 See readme.txt. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v Where_can_I_get_it_}   Where can I get it?\par }
+{\li400 From any SimTel mirror (http://alleg.sourceforge.net/mirrors.html), in 
+the directory gnu/djgpp/v2tk/, or from the Allegro homepage, 
+http://alleg.sourceforge.net/. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v How_do_I_use_it_}   How do I use it?\par }
+{\li400 See allegro.txt. 
+\par}{\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v The giftware licence}The giftware licence\par }
+The Allegro licence is absolutely clear unless you are a lawyer. 
+However, it's written quite informally so this mini-FAQ tries to clarify 
+some things. 
+\par \par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v Does_the_licence_mean_that_Allegro_is_public_domain_}   Does the licence mean that Allegro is public domain?\par }
+{\li400 No. Every Allegro contributor holds the copyright for the code he or 
+she wrote. This means he or she grants you the right to use it for 
+any purpose you want. But the fact that the contributor holds the 
+copyright means that you e.g. cannot claim that you wrote the code. 
+\par}\par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v Can_I_use_Allegro_for_commercial_purposes_}   Can I use Allegro for commercial purposes?\par }
+{\li400 Yes. 
+\par}\par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v Is_Allegro_compatible_with_licence_XXX__e_g__GPL__}   Is Allegro compatible with licence XXX (e.g. GPL)?\par }
+{\li400 Because the Allegro licence has no restrictions on use you can combine 
+it with any licence you want. 
+\par}\par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v Is_Allegro_open_source__OSI__compatible_}   Is Allegro open source (OSI) compatible?\par }
+{\li400 See the previous question. Since Allegro is compatible with about any 
+license, it also is OSI compatible. It clearly is compatible with all the 
+points in the OSD (open source definition). You can search the OSI 
+mailing list for "Allegro" to see that OSI shares this view. (OSI 
+officials still were reluctant to consider it for approval though and 
+suggested to use an existing license like MIT instead.) 
+\par}\par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v How_are_modifications_of_the_library_licensed_}   How are modifications of the library licensed?\par }
+{\li400 You can modify Allegro and distribute the modified Allegro under 
+any licence you want, but the original unmodified parts will still 
+be licenced under the Allegro licence. If you offer your 
+modifications to be included in the official Allegro distribution 
+(e.g. by sending them to the Allegro developers mailing list) you 
+automatically agree with licencing the modification under the 
+Allegro licence. 
+\par}\par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v I_took_your_code__Will_you_sue_me_}   I took your code. Will you sue me? Your library destroyed my PC. Who do I sue?\par }
+{\li400 We are programmers not lawyers. This FAQ represents our current 
+understanding of copyright law (or copyright laws in different 
+countries). But given the license, which allows everything, and 
+the disclaimer, which says we take no responsibility for anything, 
+we really don't see how there could be any problems. 
+\par}{\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v DJGPP problems}DJGPP problems\par }
+\par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v What_is_this_make_program_that_I_m_supposed_to_run_}   What is this make program that I'm supposed to run?\par }
+{\li400 Make is part of the standard djgpp distribution, in the file 
+v2gnu/mak*b.zip (whatever the latest version number is). 
+You can get this from http://www.delorie.com/djgpp/. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v Make_doesn_t_work_properly_}   Make doesn't work properly.\par }
+{\li400 Are you sure that you have installed djgpp correctly? Check the 
+instructions in the djgpp readme.1st file, and in particular confirm 
+that you have set the DJGPP environment variable and added the 
+djgpp\\bin directory to your path. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v My_djgpp_installation_is_fine__but_make_still_doesn_t_work_properly_}   My djgpp installation is fine, but make still doesn't work properly.\par }
+{\li400 Are you sure that you are using the GNU make program, and not some 
+other version like the Borland one? If in doubt, run make -v and 
+check that the GNU copyright message is displayed. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v When_I_run_make__it_asks_me_for_some_parameters__What_do_I_type_}   When I run make, it asks me for some parameters. What do I type?\par }
+{\li400 You shouldn't be running make from the Win95 explorer! Bring up a DOS 
+box, change to your Allegro directory, and type make at the command 
+prompt. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v When_I_run_make__it_says__makefile_has_modification_time_in_the_future__}   When I run make, it says "makefile has modification time in the future".\par }
+{\li400 Are you sure that your system time and date are set correctly? 
+Alternatively you may have downloaded a fresh file made by someone in a 
+more eastern timezone. In the latter case you can either wait a few 
+hours, temporarily set your clock forward, or use a utility such as 
+touch to change the timestamp of the files. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v When_I_run_make__it_says__virtual_memory_exhausted__}   When I run make, it says "virtual memory exhausted".\par }
+{\li400 \par \par As the error message suggests, you need to provide more memory for the 
+compiler to use. The go32-v2 program will tell you how much is 
+currently available. If you are running under DOS, try to free up more 
+disk space for use as a swapfile. When using win95, increase the DPMI 
+memory limit in the properties for your DOS session to 65535 (you'll 
+have to type this in by hand, because the pulldown list doesn't go 
+above 16384). 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v When_I_run_make__it_says__conflicting_types_for_va_list__}   When I run make, it says "conflicting types for va_list".\par }
+{\li400 \par \par As the error message suggests, there is a conflict between newer 
+versions of gcc and older versions of the libc. You must upgrade your 
+djdevxxx.zip package to the latest update (timestamp 11 August 2002) 
+of DJGPP-2.03 or above. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v When_I_try_to_compile_a_program_using_Allegro__I_get_lots_of_errors_like_}   When I try to compile a program using Allegro, I get lots of errors like:\par }
+{\li400 C:\\TEMP\\ccdaaaaa(.text+0x9):x.c: undefined reference to `allegro_init'\par 
+C:\\TEMP\\ccdaaaaa(.text+0xe):x.c: undefined reference to `install_keyboard'\par 
+\par \par You haven't read the docs, have you? :-) You need to link your program 
+with the library file, liballeg.a. First, make sure you have installed 
+everything properly (running make install should do this for you). 
+Second, if you are compiling from the command prompt or with a makefile, 
+add -lalleg to the end of your gcc command line, or if you are using Rhide, 
+go to the Options/Libraries menu, type alleg into the first empty field, 
+and make sure the box next to it is checked. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v I_give_up__I_can_t_compile_this__Can_you_send_me_a_precompiled_version_}   I give up: I can't compile this! Can you send me a precompiled version?\par }
+{\li400 \par \par No, sorry. For starters, liballeg.a is about 450k, but you'd probably 
+also want various utilities like the grabber, sound setup, etc. And 
+what about all the example programs? If we included compiled versions 
+of everything, a binary distribution would be over 7 megs: way too big 
+to be practical! More seriously though, there just isn't any reason 
+why you can't build it yourself. A compiler is a deterministic 
+process: given a particular input file and command line, it will always 
+produce the same output. If this isn't working, you either have the 
+wrong input files (ie. your copy of Allegro is broken in some way), or 
+the wrong command line (it is hard to see how that could happen, since 
+all you have to do is type make...) or your compiler is broken, ie. you 
+didn't install djgpp properly. You need to find and fix the problem, 
+not just sweep it under the carpet by getting someone else to compile 
+Allegro for you... 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v Compile_errors_scroll_off_the_screen_too_quickly_for_me_to_read_them_}   Compile errors scroll off the screen too quickly for me to read them!\par }
+{\li400 \par \par GNU tools write their error messages to the error stream, stderr. 
+Unfortunately command.com is too stupid to know how to redirect this, 
+but fortunately DJ was smart enough to work around that, so you can 
+use his redir program to capture the output messages, for example 
+\par {\s1 \f1\fs18 
+\par          redir -eo make > logfile.txt
+\par \par}\par       \par}\par {\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v DOS problems}DOS problems\par }
+\par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v Does_the_DOS_version_of_Allegro_work_under_Windows_NT_}   Does the DOS version of Allegro work under Windows NT?\par }
+{\li400 \par \par Your mileage may vary. Some people have reported problems, while 
+others say that it works fine. Use the Windows version of Allegro 
+if you want to make Windows programs. If you want to run DOS 
+programs, use DOS! 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v Does_Allegro_work_under_OpenDOS_}   Does Allegro work under OpenDOS?\par }
+{\li400 \par \par Yes, but with some caveats. If you are using the OpenDOS version of 
+EMM386, you must disable their DPMI implementation (specify DPMI=OFF
+on the EMM386.EXE device line in your config.sys). You should also 
+make sure the PIC=OFF flag is set, but this is the default so it won't 
+be a problem unless you have specifically enabled it. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v How_can_I_extend_the_256k_limit_on_Mode_X_video_memory_}   How can I extend the 256k limit on Mode-X video memory? I have two megs in my card.\par }
+{\li400 \par \par You can't. The limit is imposed by the VGA hardware, not by Allegro. 
+To access more than 256k of video memory you need to use an SVGA mode, 
+which means either switching to a higher resolution or getting a copy 
+of the SciTech Display Doctor, which provides several low resolution 
+SVGA modes. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v Does_DOS_Allegro_work_with_the_SB_Live_soundcard_}   Does DOS Allegro work with the SB-Live soundcard?\par }
+{\li400 \par \par It does for some people, but not for others. The problem is that 
+Creative Labs refuse to release any specs, so we don't know how to 
+write a driver for it. Complain to them, or buy a different card from 
+a more reasonable manufacturer. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v Why_does_DOS_Allegro_play_sounds_so_much_quieter_than_in_Windows_}   Why does DOS Allegro play sounds so much quieter than in Windows?\par }
+{\li400 \par \par This might be because you have the volume set very low: try changing 
+this in the setup program. Also, Allegro is mixing several sounds into 
+a single output buffer, unlike the Windows sound player that only 
+plays one sample at a time, so each individual sound can only get a 
+smaller percentage of the total output volume. This is just the price 
+you pay for multiple output channels. If you don't like it, use the 
+setup program to tweak the number of channels: this can be any power 
+of two less than or equal to 64, and the smaller you make it, the 
+louder the sound will be. Alternatively, use set_volume_per_voice(), 
+described in the docs. This will enable you to adjust the overall 
+volume of Allegro's digital sound output. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v Why_doesn_t_it_work_with_my_video_card_}   Why doesn't it work with my video card?\par }
+{\li400 \par \par Try using a FreeBE/AF driver (http://www.talula.demon.co.uk/freebe/), 
+or the commercial SciTech Display Doctor (http://www.scitechsoft.com). 
+If it still doesn't work, post a description of your problem to the 
+Allegro mailing list, along with a copy of the output from running the 
+afinfo and vesainfo programs. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v Why_not_use_some_sort_of_dynamic_linking_system_}   Why not use some sort of dynamic linking system?\par }
+{\li400 \par \par The VBE/AF interface already provides this for the video drivers: see 
+the FreeBE/AF project on http://www.talula.demon.co.uk/freebe/. 
+For more general things like the sound, VESA, and mode-X routines, 
+this would be very difficult to do because the drivers depend on a lot 
+of helper functions from the core lib. The djgpp DXE format is nowhere 
+near flexible enough to support this, and we don't want to make Allegro 
+dependent on any other dynamic linking packages. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v I_get_an__out_of_environment_space__error_when_I_run_fix_bat_or}   I get an "out of environment space" error when I run fix.bat or vcvars32.bat!\par }
+{\li400 \par \par Well duh, you need to increase the size of your environment then :-) 
+You can do this by changing the settings for your DOS box (click the 
+system menu and select "properties"), or at startup in your config.sys 
+file (eg. shell=c:\\command.com /e:8192 /p). 
+\par}{\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v Windows problems}Windows problems\par }
+\par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v I_get_an__out_of_environment_space__error_when_I_run_fix_bat_or}   I get an "out of environment space" error when I run fix.bat or vcvars32.bat!\par }
+{\li400 \par \par Well duh, you need to increase the size of your environment then :-) 
+You can do this by changing the settings for your DOS box (click the 
+system menu and select "properties"), or at startup in your config.sys 
+file (eg. shell=c:\\command.com /e:8192 /p). 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v When_I_run_make__it_says__missing_separator__}   When I run make, it says "missing separator".\par }
+{\li400 \par \par Make sure that you don't have a semi-colon appended to your MSVCDIR 
+variable if you are using MSVC, to your MINGDIR variable if you are 
+using MinGW or to your BCC32DIR variable if you are using BCC. 
+Also run make -v from the command line and make sure you are using 
+GNU make and not Borland make or Microsoft make. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v I_get_lots_of_compile_errors_about_things_like__LPDIRECTDRAWSURFACE2__}   I get lots of compile errors about things like "LPDIRECTDRAWSURFACE2"!\par }
+{\li400 \par \par You need to tell your compiler how to find the DirectX include files 
+and libraries: put the DirectX SDK /include and /lib directories in the 
+compiler/linker path. Alternatively, if you don't want to modify any 
+configuration stuff, you can simply copy the files from the DirectX SDK 
+/include and /lib directories to the corresponding ones for your 
+compiler. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v I_get_lots_of_compile_errors_about_things_like__DDEDM_STANDARDVGAMODES__}   I get lots of compile errors about things like "DDEDM_STANDARDVGAMODES"!\par }
+{\li400 \par \par You need to upgrade to a more recent version of the DirectX SDK, at 
+least version 5, which you can get from the Microsoft Developer site. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v When_I_run_make__it_says__windres__no_resources__}   When I run make, it says "windres: no resources".\par }
+{\li400 \par \par If an anti-virus software (Norton or McAfee for example) is running in 
+the background on your computer, try to disable it temporarily. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v I_get_an_error_about_a_missing_WinMain___or_main___function_}   I get an error about a missing WinMain() or main() function!\par }
+{\li400 \par \par You need to write END_OF_MAIN() just after your main() function. 
+Allegro uses this, along with some preprocessor magic, to turn a normal 
+main() function into a Windows-style WinMain() entry point. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v I_get_an_error_about_an__unresolved_external_symbol__main__}   I get an error about an "unresolved external symbol _main"!\par }
+{\li400 \par \par Make sure you're building a Windows GUI Application, and not a Windows 
+Console Application. This is a setting when you create the project in 
+MSVC, Dev-C++ or Borland C++ Builder. Alternatively, this is specified 
+on the command line by the -subsystem:windows option for the MSVC 
+linker, by the -Wl,--subsystem,windows option for the MinGW compiler 
+or the -tW option for the Borland C++ compiler. Either that, or define 
+the preprocessor symbol ALLEGRO_USE_CONSOLE prior to including Allegro 
+headers if you really need the console for your program. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v I_get_lots_of_compile_errors_about_conflicting_types_for__struct_BITMAP__}   I get lots of compile errors about conflicting types for "struct BITMAP"!\par }
+{\li400 \par \par If your program directly includes Win32 API header files, see the 
+"Windows specifics" section of the documentation. 
+\par \par \par If your program only includes header files of the C++ standard library, 
+you're very likely trying to compile it with gcc 3.x for MinGW; if so, 
+define the symbol __GTHREAD_HIDE_WIN32API on the compiler command line: 
+\par {\s1 \f1\fs18 
+\par          g++ -D__GTHREAD_HIDE_WIN32API program.cpp -lalleg
+\par \par}\par       \par}\par \par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v In_windowed_mode_artifacts_are_left_on_the_desktop_when_the_window}   In windowed mode artifacts are left on the desktop when the window is moved or when another window is placed on top of it.\par }
+{\li400 \par \par Disable direct updating for the DirectX windowed driver by using the 
+dedicated configuration variable. See the 'Configuration routines' 
+section in the docs and the allegro.cfg template file for more 
+detailed informations. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v In_windowed_mode_the_screen_stays_black_unless_the_window_is_placed}   In windowed mode the screen stays black unless the window is placed under another window on the desktop.\par }
+{\li400 \par \par Disable direct updating for the DirectX windowed driver by using the 
+dedicated configuration variable. See the 'Configuration routines' 
+section in the docs and the allegro.cfg template file for more 
+detailed informations. 
+\par}{\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v Unix problems}Unix problems\par }
+\par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v I_get_an_error_about___mangled_main_address__being_undefined_}   I get an error about "_mangled_main_address" being undefined!\par }
+{\li400 \par \par You need to write END_OF_MAIN() just after your main() function. 
+Allegro uses this, along with some preprocessor magic, to get a copy 
+of your argv[] parameters (it needs those for various internal things). 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v I_get_an_error_about_a_duplicate_definition_of_the___main__symbol_}   I get an error about a duplicate definition of the "_main" symbol!\par }
+{\li400 \par \par You are probably on a Darwin/MacOS X system. If so, make sure the symbol 
+USE_CONSOLE is not defined in your program: it is a deprecated symbol 
+that must be replaced by ALLEGRO_USE_CONSOLE. Also note that the magic 
+main can't be disabled on such a system: you simply can't define the 
+symbol ALLEGRO_NO_MAGIC_MAIN in a program linked against Allegro. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v Compile_errors_scroll_off_the_screen_way_too_quickly_for_me_to_read_them_}   Compile errors scroll off the screen way too quickly for me to read them!\par }
+{\li400 \par \par You need to redirect stderr into a file, so you can view them later. 
+The method for doing this depends on your shell: if you are using a 
+Bourne-style shell like bash, try make 2> logfile.txt
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v When_I_try_to_run_Allegro_programs__I_get__error_while_loading_shared_libraries_}   When I try to run Allegro programs, I get "error while loading shared libraries: liballeg.so.4.1: cannot open shared object file: No such file or directory".\par }
+{\li400 \par \par You need to teach the dynamic linker where to find the Allegro shared library. 
+See docs/build/unix.txt, near the end of the 'Installing Allegro' section. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v When_I_try_to_use_DGA2__I_get__resolution_not_supported___but_the}   When I try to use DGA2, I get "resolution not supported", but the X server does actually support that resolution !\par }
+{\li400 \par \par There are two possible reasons: 
+1) DGA2 may support different resolutions/color depths than X, 
+run the gfxinfo program to know what combinations you can use, 
+2) You may have a buggy DGA2 implementation, see next question. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v When_I_try_to_use_DGA2__the_screen_goes_black_and_the_PC_completely}   When I try to use DGA2, the screen goes black and the PC completely halts!\par }
+{\li400 \par \par You are probably using a XFree86 server with a very buggy DGA2 
+implementation, such as 4.0.3 (shipped with Red Hat 7.1 for example). 
+Upgrading to 4.1.0 will probably solve your problem. You can obtain 
+it from ftp://ftp.xfree86.org/pub/XFree86/4.1.0/binaries/ selecting 
+the directory suited to your platform and following the instructions 
+you find in the Install file. 
+\par}{\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v General problems}General problems\par }
+\par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v I_m_trying_to_compile_the_grabber__but_it_doesn_t_work_}   I'm trying to compile the grabber, but it doesn't work!\par }
+{\li400 \par \par The grabber needs to be linked with the code in datedit.c. But you 
+shouldn't have to worry about doing this by hand: just run make and 
+that will build everything for you. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v When_I_compile_Allegro__make_fails_with_something_like__Error__operands}   When I compile Allegro, make fails with something like `Error: operands given don't match any known 386 instruction' or `Error: no such instruction `maskmovq %mm3, %mm1''.\par }
+{\li400 \par \par You need to update your version of GNU binutils. See readme.txt to 
+find out what the minimum required version you need is. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v Can_I_use_Allegro_with_my__ltfoobar_gt_compiler_}   Can I use Allegro with my <foobar> compiler?\par }
+{\li400 \par \par Not unless <foobar> is mentioned in readme.txt as one of the 
+supported platforms. You could port it, but that is usually a lot of 
+work. If <foobar> is a 16 bit DOS compiler like Borland C, you 
+might as well just forget the idea :-) 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v What_is_this__Allegro_WIP__that_I_see_people_talking_about_}   What is this "Allegro WIP" that I see people talking about?\par }
+{\li400 \par \par WIP stands for "work in progress", and refers to any changes that are 
+more recent than the last official release. WIP versions of the 
+library can be obtained as patches from the Allegro website 
+(http://alleg.sourceforge.net/), and are usually 
+quite stable, although obviously not so well tested as a final release 
+version. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v I_got_the_WIP_patch__but_I_can_t_apply_it_}   I got the WIP patch, but I can't apply it.\par }
+{\li400 \par \par Do you have a copy of patch.exe? If not, go and get it from the same 
+place that you downloaded the rest of djgpp: this tool is a standard 
+part of the compiler distribution. Similarly, you can get the Mingw 
+compiled version from http://sourceforge.net/projects/gnuwin32/. 
+\par \par \par If you do have the patch program but it isn't working properly, make 
+sure that you are installing the patch over the top of an unmodified 
+copy of whatever Allegro version it is intended to update (this will 
+usually be the most recent official release from before the WIP was 
+made, but check the text file that comes with the WIP to be sure). 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v When_I_run_the_demo_game__it_says_it_can_t_find_demo_dat_}   When I run the demo game, it says it can't find demo.dat.\par }
+{\li400 \par \par That file is distributed separately in the WIP versions. It is here: 
+http://alleg.sourceforge.net/wip.html. (alldata.zip) 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v How_can_I_display_several_different_images_at_the_same_time_}   How can I display several different images at the same time? When I show the second one it messes up the palette for the first.\par }
+{\li400 \par \par This is just the way that the video hardware works: there can only be 
+one palette in use at any given moment. Either convert your images so 
+they all use the same palette, or switch to a truecolor graphics mode. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v How_can_I_convert_my_graphics_to_all_use_the_same_256_color_palette_}   How can I convert my graphics to all use the same 256 color palette?\par }
+{\li400 \par \par See the Allegro.cc homepage (http://www.allegro.cc/) 
+for some utilities, for example FixPal and Smacker. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v My_colors_always_come_out_wrong__And_how_can_I_make_a_greyscale_palette}   My colors always come out wrong. And how can I make a greyscale palette with 256 different shades?\par }
+{\li400 \par \par The VGA hardware only uses 6 bits for each color component, which 
+means the red, green, and blue values in the palette structure range 
+from 0 to 63, not all the way up to 255. That gives you a potential 
+2^18 = 262144 different colors, or 64 shades of grey. If you need more 
+than this you could try using VESA function 0x4F08 to select an 8 bit 
+wide DAC, but Allegro doesn't support this directly and I don't know 
+how reliable it will be across different hardware. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v Why_do_I_have_a_funny_color_border_at_the_edges_of_my_monitor_}   Why do I have a funny color border at the edges of my monitor?\par }
+{\li400 \par \par When you are in a 256 color mode, the VGA card displays color #0 
+around the border of the display area (in truecolor modes it displays 
+black). Your funny color will go away if you change the palette so 
+that color #0 is black. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v How_can_I_fade_the_screen_in_a_truecolor_graphics_mode_}   How can I fade the screen in a truecolor graphics mode?\par }
+{\li400 \par \par With great difficulty :-) There is no such easy trick as just altering 
+the palette, so you will have to repeatedly redraw the image in a 
+lighter or darker form. You could draw black translucent rectangles 
+over the screen to darken it down, or use draw_lit_sprite() to tint a 
+bitmap while copying it to the screen, but be warned that these 
+operations are expensive and will require a fast PC! 
+\par \par \par Also, have a look at http://www.allegro.cc/ for add-on packages 
+(notably FBlend v0.5) that attempt to make this operation as fast as 
+possible. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v I_tried_using_fade_in___and_fade_out___with_truecolor_modes_but_nothing}   I tried using fade_in() and fade_out() with truecolor modes but nothing happened. What am I doing wrong?\par }
+{\li400 \par \par fade_in() and fade_out() only work in 8-bit paletted modes. 
+See the previous question for details. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v How_can_I_generate_FLI_or_FLC_format_animations_}   How can I generate FLI or FLC format animations?\par }
+{\li400 \par \par See the Allegro.cc homepage (http://www.allegro.cc/) 
+for some utilities, for example DTA and Smacker. Also, you can use ASE 
+(Allegro Sprite Editor, http://ase.sourceforge.net/), which allows 
+drawing/editing each frame of the animation and save it as a FLI. Or 
+you can use The GIMP (http://www.gimp.org/) along with it's GFli 
+plugin, using layers as frames, and saving your work as file.fli. 
+The GIMP allows you to edit existent FLI files too. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v How_can_I_make_parts_of_my_sprite_transparent_in_truecolor_modes_}   How can I make parts of my sprite transparent in truecolor modes? I don't understand what the docs mean by "bright pink"...\par }
+{\li400 \par \par In your favourite paint program, get hold of the RGB sliders and drag 
+the red and blue ones up as far as they go (usually to 255, but this 
+will depend on what units your software uses), and the green one right 
+down to zero. The result is a special shade of Magic Pink, or as some 
+people prefer to call it, magenta. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v I_can_t_get_the_3D_polygon_functions_to_work_}   I can't get the 3D polygon functions to work!\par }
+{\li400 \par \par Remember that the vertex positions are stored in fixed point format, 
+so you must use the itofix() macro or shift your coordinates 16 bits 
+to the left. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v I_can_t_get_the_rotate_sprite___function_to_work_}   I can't get the rotate_sprite() function to work!\par }
+{\li400 \par \par Remember that the angle of rotation is stored in fixed point format, 
+so you must use the itofix() macro or shift your coordinates 16 bits 
+to the left. For example, rotate_sprite(bmp, spr, x, y, itofix(32))
+will rotate the graphic by 45 degrees. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v I_can_t_get_the_d_bitmap_proc___or_d_icon_proc___GUI_object_to_work_}   I can't get the d_bitmap_proc() or d_icon_proc() GUI object to work!\par }
+{\li400 \par \par You are probably trying to initialise the dialog structure with a 
+pointer to your bitmap, right? That won't work because the dialog is 
+created at compile time, but the bitmap is only loaded at runtime, so 
+the compiler doesn't yet know where it will be located. You need to 
+fill in the dialog structure with a NULL pointer, and then copy the 
+real bitmap pointer into the dp field as part of your program init 
+code, after you've loaded the bitmap into memory. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v Should_I_use_regular_bitmaps__RLE_sprites__or_compiled_sprites_}   Should I use regular bitmaps, RLE sprites, or compiled sprites?\par }
+{\li400 \par \par It depends on exactly what you are doing. If your images are totally 
+opaque, there is no advantage to using an RLE sprite, and it will 
+probably be faster to use a regular bitmap with the blit() function. 
+If your graphics contain masked areas, an RLE sprite may be both smaller 
+and faster than the draw_sprite() function, depending on your CPU 
+and your bitmaps. 
+Compiled sprites are in general quite a bit faster than both the 
+others for masked images, and slightly faster for opaque graphics, but 
+this is far more variable. They are at their best with small sprites, 
+on older machines and in mode-X, and may actually be slower than 
+blit() when using SVGA modes on a pentium (the large size of a 
+compiled sprite is very bad for the cache performance). 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v How_can_I_make_my_game_run_at_the_same_speed_on_any_computer_}   How can I make my game run at the same speed on any computer?\par }
+{\li400 \par \par You need to make sure the game logic gets updated at a regular rate, 
+but skip the screen refresh every now and then if the computer is too 
+slow to keep up. This can be done by installing a timer handler that 
+will increment a global variable at your game logic speed, eg: 
+\par {\s1 \f1\fs18 
+\par       volatile int speed_counter = 0;
+\par 
+\par       void increment_speed_counter()
+\par       \{
+\par          speed_counter++;
+\par       \}
+\par 
+\par       END_OF_FUNCTION(increment_speed_counter)
+\par 
+\par       void play_the_game()
+\par       \{
+\par          LOCK_VARIABLE(speed_counter);
+\par          LOCK_FUNCTION(increment_speed_counter);
+\par 
+\par          install_int_ex(increment_speed_counter, BPS_TO_TIMER(60));
+\par 
+\par          while (!game_over) \{
+\par             while (speed_counter > 0) \{
+\par                update_game_logic();
+\par                speed_counter--;
+\par             \}
+\par 
+\par             update_display();
+\par          \}
+\par       \}\par}
+\par}\par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v How_can_I_take_a_screenshot_of_my_Allegro_program_}   How can I take a screenshot of my Allegro program?\par }
+{\li400 \par \par Add a call to save_bitmap() somewhere in your code. See the 
+save_bitmap() documentation for a discussion of one common pitfall 
+when doing this, and some example code. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v How_can_I_generate_a_random_number_}   How can I generate a random number?\par }
+{\li400 \par \par Call srand(time(NULL)) at the beginning of your program, and then use 
+rand()%limit to obtain a pseudo-random number between 0 and limit-1. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v Why_not_make_a__lite__version_of_Allegro_}   Why not make a "lite" version of Allegro? I don't need any of the sound, maths, or GUI routines...\par }
+{\li400 \par \par There is no need. The linker will only include the parts of the 
+library that you actually use, so if you don't call any of, say, the 
+texture mapping or FLIC playing functions, they will be left out of 
+your executable. This doesn't work perfectly because a lot of the 
+Allegro code uses tables of function pointers that cause some 
+unnecessary routines to be linked in, so the majority of the graphics 
+functions will be included in every executable, but I have tried to 
+keep this to a minimum. See allegro.txt for information about more 
+precise ways to remove some of the graphics and sound drivers. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v Will_you_ever_add_support_for_3D_accelerator_hardware_}   Will you ever add support for 3D accelerator hardware?\par }
+{\li400 \par \par No. This sort of hardware support would be most useful as part of a 
+proper 3D API, which Allegro is not, and will never be. If you want 
+to do some work on this, the MESA library (a free implementation 
+of OpenGL) is IMHO the place to start. 
+\par \par \par However, if you are interested in using OpenGL for graphics and Allegro 
+for everything else, you can try the various add-ons libraries linked 
+from http://www.allegro.cc/ such as AllegroGL. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v Why_not_add_a_MOD_playing_function_}   Why not add a MOD playing function?\par }
+{\li400 \par \par Several very good ones already exist, for instance the JGMOD or DUMB 
+packages. See the audio library extensions section on the Allegro.cc 
+website (http://www.allegro.cc/). You are not allowed to suggest 
+that one of these libraries be merged into Allegro, because this topic 
+has already been done to death on the mailing list and we are tired of it. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v Why_not_add_networking_support_}   Why not add networking support?\par }
+{\li400 \par \par There are several networking packages currently in development or 
+floating around on the net, though, and in our opinion this sort of 
+code is more useful as an external library than it would be as part of 
+Allegro. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v Why_can_t_Allegro_read_GIF_files_}   Why can't Allegro read GIF files?\par }
+{\li400 \par \par Unisys has a patent on the LZW compression algorithm that is used by 
+the GIF format. We want everything in Allegro to be freely usable 
+without any restrictions whatsoever, which means we can't include any 
+code that is subject to licensing or the payment of royalties. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v My_program_crashes_all_the_time__Could_this_be_a_bug_in_Allegro_}   My program crashes all the time. Could this be a bug in Allegro?\par }
+{\li400 \par \par Perhaps. Try to isolate the smallest fragment of code that is able to 
+reproduce the problem, and we'll have a look at it. If you can send us 
+a 10 line program, we will fix it. 100 lines, and we can probably fix 
+it. 1000 lines, and we don't have a chance :-) 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v Can_I_use_Allegro_in_my__ltwhatever_gt_commercial_application_}   Can I use Allegro in my <whatever> commercial application?\par }
+{\li400 \par \par Sure. See the giftware terms in readme.txt. We don't mind what you do 
+with it, and there are no problems with commercial usage. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v When_will__ltfoobar_gt_be_finished__I_can_t_wait___}   When will <foobar> be finished? I can't wait...\par }
+{\li400 \par \par Whenever it is done! A little encouragement is always welcome, but we 
+don't have any completion deadlines and we're not going to make one up 
+for you :-) As soon as it is finished, it will be released. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v Where_can_I_get_some_fonts_to_use_with_Allegro_}   Where can I get some fonts to use with Allegro?\par }
+{\li400 \par \par The grabber can import directly from GRX or BIOS format .fnt files, or 
+you can draw them onto a .pcx image using any paint program. See 
+http://www.talula.demon.co.uk/ttf2pcx/ for a utility that 
+will convert Windows TrueType fonts into this .pcx format. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v Where_can_I_find_a_set_of_instrument_samples_for_the_DIGMID_driver_}   Where can I find a set of instrument samples for the DIGMID driver?\par }
+{\li400 \par \par See the Allegro homepage (http://alleg.sourceforge.net/) 
+for some links. You can use Gravis patches (.pat format), or SoundFont 
+2.0 (.sf2) files, but the latter must be converted into a patches.dat 
+file with the pat2dat utility. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v How_can_I_convert_the_documentation_into_Windows_Help_format_}   How can I convert the documentation into Windows Help format?\par }
+{\li400 \par \par You need to download the makertf conversion utility 
+(http://www.giffer.com/public/win/pwflemgt/Files/MKRTF104.ZIP), and the Windows 
+Help compiler (ftp://ftp.microsoft.com/Softlib/MSLFILES/HC505.EXE). 
+Make a temporary directory, copy the allegro.txi file from the 
+allegro/docs dir, and run the commands makertf --no-warn allegro.txi 
+-o allegro.rtf -J allegro.hpj followed by hcp allegro.hpj. The 
+second command will give a lot of warnings, but they can safely be 
+ignored. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v How_can_I_print_out_the_documentation_}   How can I print out the documentation?\par }
+{\li400 \par \par The allegro.rtf file can be read directly into Microsoft Word and 
+printed from there, but you should right-click and update the table of 
+contents and index fields to fill them with the correct data first. 
+Alternatively you can install the TeX package and use the tex and 
+dvips programs to convert allegro.txi into Postscript format. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v Where_can_I_find_example_source_code__add_on_packages__and_tutorials_}   Where can I find example source code, add-on packages, and tutorials?\par }
+{\li400 \par \par Check the Allegro.cc homepage, http://www.allegro.cc/. 
+If you have anything to add to this, please post the URL! 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v Why_is_it_considered_good_coding_practice_to_define_PI_as_a_constant_}   Why is it considered good coding practice to define PI as a constant, rather than just using the value 3.141592 in my code?\par }
+{\li400 \par \par It simplifies the maintenance of your program, in case the value of PI 
+ever needs to be changed. Also it will make your program more portable 
+to other compilers that use different values of PI. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v Why_doesn_t_vsync___seem_to_work_}   Why doesn't vsync() seem to work?\par }
+{\li400 \par \par A number of graphics cards have buggy or incomplete VESA 
+implementations, and often the vsync() function is not implemented. For 
+examples on flicker-free drawing, look at the code for the demo game, 
+which uses a variety of methods to draw itself. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v Why_doesn_t_busy_waiting_on_the_key_array_work__For_example_}   Why doesn't busy waiting on the key array work? For example, "while (!key[KEY_ENTER]);" doesn't work.\par }
+{\li400 \par \par If the code works without optimisations, then it could be the 
+compiler's fault. You can try beating the compiler into submission, 
+for example: 
+\par {\s1 \f1\fs18 
+\par       while (!key[KEY_ENTER])
+\par          rest(0);\par}
+\par For this case, however, it would be better to use readkey() instead. 
+Or consider upgrading or downgrading your compiler. 
+\par}\par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v I_get_lots_of_errors_when_I_try_to_compile_my_C___Allegro_program_}   I get lots of errors when I try to compile my C++ Allegro program.\par }
+{\li400 \par \par You are probably declaring the use of a namespace before including 
+Allegro headers. For example: 
+\par {\s1 \f1\fs18 
+\par       #include <iostream>
+\par       using namespace std;
+\par 
+\par       #include <allegro.h>\par}
+\par Move the `using' declaration after the `include' directives referring 
+to Allegro headers: 
+\par {\s1 \f1\fs18 
+\par       #include <iostream>
+\par       #include <allegro.h>
+\par 
+\par       using namespace std;\par}
+\par}\par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v I_m_still_confused__Where_can_I_get_help_}   I'm still confused. Where can I get help?\par }
+{\li400 \par \par See http://alleg.sourceforge.net/maillist.html. 
+\par \par \par \par \par \par }

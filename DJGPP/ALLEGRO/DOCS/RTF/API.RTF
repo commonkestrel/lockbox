@@ -1,0 +1,449 @@
+{\rtf\ansi\deff0\widowctrl \f0\fs20 
+{\colortbl;\red0\green0\blue0;\red255\green0\blue0;\red0\green255\blue0;\red0\green0\blue255;}
+{\fonttbl{\f0\froman\fcharset0\fprq2 Times New Roman;}
+{\f1\fmodern\fcharset0\fprq1 Courier New;}
+{\f2\froman\fcharset2\fprq2 Symbol;}}
+{\stylesheet {\widctlpar \f0\fs20 \snext0 Normal;}
+{\s1\widctlpar \f1\fs18 \sbasedon0\snext1 Quotation;}
+{\s2\widctlpar \f0\fs48\sa600\pagebb\keepn\ul \sbasedon0\snext2 Heading 1;}
+{\s3\widctlpar \f0\fs24\sb200\keepn\sa200\b \sbasedon0\snext3 Heading 2;}
+{\s4\widctlpar \f0\fs20\tqc\tx4153\tqr\tx8306 \sbasedon0\snext4 Header;}
+{\s5\widctlpar \f0\fs24\tqr\tldot\tx8640 \sbasedon0\snext0 TOC 1;}
+{\s6\widctlpar \f0\fs20\tqr\tldot\tx8640 \sbasedon0\snext0 Index 1;}}
+\par {\s1 \f1\fs18 
+\par      ______   ___    ___
+\par     /\\  _  \\ /\\_ \\  /\\_ \\
+\par     \\ \\ \\L\\ \\\\//\\ \\ \\//\\ \\      __     __   _ __   ___ 
+\par      \\ \\  __ \\ \\ \\ \\  \\ \\ \\   /'__`\\ /'_ `\\/\\`'__\\/ __`\\
+\par       \\ \\ \\/\\ \\ \\_\\ \\_ \\_\\ \\_/\\  __//\\ \\L\\ \\ \\ \\//\\ \\L\\ \\
+\par        \\ \\_\\ \\_\\/\\____\\/\\____\\ \\____\\ \\____ \\ \\_\\\\ \\____/
+\par         \\/_/\\/_/\\/____/\\/____/\\/____/\\/___L\\ \\/_/ \\/___/
+\par                                        /\\____/
+\par                                        \\_/__/
+\par 
+\par 
+\par                 API compatibility information.
+\par 
+\par          See readme.txt for a more general overview.
+\par }\par {\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v Introduction}Introduction\par }
+Once Allegro 4.0 is released, we plan to maintain backward compatibility 
+at the Application Programming Interface level for the subsequent stable 
+releases of the 4.x series, that is for the releases with an even minor 
+version number. For example, that means you will be able to compile your 
+program written for version 4.0.0 with version 4.0.23 or version 4.2.1 of 
+the library. However, in order to fix some minor inconsistencies of the 
+original 4.0 API, we may make exceptions to the rule and break strict 
+backward compatibility in a few cases. But this is guaranteed to never 
+happen in a stable series for which major and minor version numbers are 
+fixed; in other words, two stable versions that differ from each other 
+only by the revision (3rd) number will be strictly backward compatible. 
+\par {\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v Changes between 4.0.x and 4.2.x series}Changes between 4.0.x and 4.2.x series\par }
+\par {\li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 The 'aspect' parameter of get_camera_matrix() and get_camera_matrix_f() 
+strictly conforms to the documentation; in particular, setting it to 1 
+instructs the functions to do no scaling. This was not the case before, 
+because the functions multiplied this aspect ratio by 4/3. 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 Menus created from a DIALOG array (by using d_menu_proc for the proc pointer) 
+now correctly use the w and h fields as a minimum for their inclusive 
+dimensions (in the same way as all other GUI elements). Before, they would 
+draw the border outside of this dimension (1 pixel overdraw with other GUI 
+elements), and also add an additional 'shadow' to the right and the bottom 
+(2 pixels overdraw with other GUI elements). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 The 'retrace_count' variable and the 'retrace_proc' callback function 
+take into account the refresh rate (if it is known) when the retrace 
+simulator is not installed. This was not the case before, except under 
+Windows. 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 The default value for the mouse configuration variable 'emulate_three' 
+has been changed to 'no' in all cases (even if you have a 2-button mouse). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 The COLORCONV_KEEP_TRANS flag strictly conforms to the documentation now. 
+This was not the case before, because it was ignored when loading bitmaps 
+from datafiles. fixup_datafile() was modified to preserve transparency 
+when this flag is set, which was not guaranteed before in rare cases. 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 create_sub_bitmap() is now less tolerant about receiving bad arguments. 
+For example, it used to compensate for negative values for the origin 
+and return NULL if the parent bitmap was NULL. These cases are now 
+ASSERTed in the debug version, but unchecked in the release version. 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 install_allegro() and allegro_init() now return an error code if unable to 
+initialise a system driver. Previously they would have aborted the program 
+in such cases. Consequently you should check their return values. 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 The preprocessor symbol USE_CONSOLE is deprecated. Define instead the 
+symbol ALLEGRO_USE_CONSOLE prior to including Allegro headers in order 
+to set up Allegro for building a console application. 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 The constructors of the fix class from integer and floating point values 
+are now explicit. 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 All BeOS gfx driver IDs and constants have been replaced by more meaningful 
+ones. You may have to modify your allegro.cfg to reflect the change, or 
+update and recompile your programs if you used BeOS specific gfx drivers. 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 The behaviour of the GFX_SAFE driver has changed: it doesn't try to first 
+set up GFX_AUTODETECTed drivers anymore and is now guaranteed to be a 
+windowed driver when the platform has got a windowing system. 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 A datafile object returned by load_datafile_object() used not to contain 
+the properties attached to the object. This has been fixed. 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 object_message() now takes care of scaring and unscaring the mouse if the 
+message to be sent is MSG_DRAW. 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 file_select_ex() now treats '(+)d' as it does for any other attributes in 
+the extension string which is passed to it: only directories are included 
+and, among them, only those with the correct set of attributes. 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 d_ctext_proc() now behaves like d_text_proc() and d_rtext_proc(), that is 
+it takes into account the bounding box to calculate the position which the 
+string is centered around. It previously used only the x field. And, as a 
+consequence, gui_ctext_proc is now expected to behave the same. 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 dialog_message() now passes user messages to hidden objects. 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 set_volume() doesn't use the hardware mixer anymore to alter the global 
+volume. Use set_hardware_volume() instead to get the old behaviour. 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 The default sound volume of Allegro was raised, since there no longer is 
+the risk of wrapping with the new mixer. To restore the volume level to 
+that of previous versions, look at the set_volume_per_voice function. 
+Programs already using set_volume_per_voice are not affected. 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 The semantics of rest are clarified so rest(0) does yielding when 
+possible. 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 The get_align_matrix[_f] functions would return mirrored matrices in some 
+cases, this was fixed. 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 In many places 'unsigned long' variables were used to hold memory 
+addresses. These have been changed to use the 'uintptr_t' type instead. 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 15-bit and 16-bit bitmaps used to be arrays of unsigned shorts, and 32-bit 
+bitmaps used to be arrays of unsigned longs. They have been changed to be 
+arrays of 16-bit and 32-bit integers respectively. This makes a difference 
+on platforms where an unsigned long is not 32-bits wide (e.g. some 64-bit 
+platforms). 
+\par}\pard \li0 {\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v Deprecated materials}Deprecated materials\par }
+The following items have been deprecated and the main documentation was 
+purged of any references to them. If you are still using any of those, now 
+might be a good time to get rid of them (within parentheses is the symbol 
+most likely to be a replacement for the obsolete one, if any). However 
+they are still supported for the sake of backwards compatibility, unless 
+you define the symbol ALLEGRO_NO_COMPATIBILITY prior to including Allegro 
+headers. 
+\par \par \par {\li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 clear (clear_bitmap). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 cpu_fpu (cpu_capabilities, in combination with CPU_FPU). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 cpu_mmx (cpu_capabilities, in combination with CPU_MMX). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 cpu_3dnow (cpu_capabilities, in combination with CPU_3DNOW). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 cpu_cpuid (cpu_capabilities, in combination with CPU_ID). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 draw_character (draw_character_ex, passing the mode you would have passed 
+to text_mode() as the 'bg' parameter). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 fadd (fixadd). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 fsub (fixsub). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 fmul (fixmul). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 fdiv (fixdiv). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 fceil (fixceil). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 ffloor (fixfloor). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 fcos (fixcos). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 fsin (fixsin). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 ftan (fixtan). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 facos (fixacos). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 fasin (fixasin). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 fatan (fixatan). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 fatan2 (fixatan2). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 fsqrt (fixsqrt). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 fhypot (fixhypot). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 file_size (file_size_ex) 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 file_select (file_select_ex, passing the two constants OLD_FILESEL_WIDTH 
+and OLD_FILESEL_HEIGHT if you want the file selector to be displayed with 
+the dimensions of the old file selector). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 fix_filename_path (canonicalize_filename). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 for_each_file (for_each_file_ex). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 gui_textout (gui_textout_ex, passing the mode you would have passed to 
+text_mode() as the 'bg' parameter). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 initialise_joystick (install_joystick). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 joy_x (joy). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 joy_y (joy). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 joy_left (joy). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 joy_right (joy). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 joy_up (joy). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 joy_down (joy). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 joy_b1 (joy). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 joy_b2 (joy). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 joy_b3 (joy). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 joy_b4 (joy). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 joy_b5 (joy). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 joy_b6 (joy). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 joy_b7 (joy). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 joy_b8 (joy). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 joy2_x (joy). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 joy2_y (joy). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 joy2_left (joy). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 joy2_right (joy). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 joy2_up (joy). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 joy2_down (joy). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 joy2_b1 (joy). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 joy2_b2 (joy). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 joy_throttle (joy). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 joy_hat (joy). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 JOY_HAT_CENTER. 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 JOY_HAT_CENTRE. 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 JOY_HAT_LEFT. 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 JOY_HAT_RIGHT. 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 JOY_HAT_DOWN. 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 JOY_HAT_UP. 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 KB_EXTENDED. 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 KB_NORMAL. 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 SEND_MESSAGE (object_message). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 set_window_close_button. 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 set_window_close_hook (set_close_button_callback). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 text_mode. 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 textout (textout_ex, passing the mode you would have passed to text_mode() 
+as the 'bg' parameter). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 textout_centre (textout_centre_ex, passing the mode you would have passed 
+to text_mode() as the 'bg' parameter). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 textout_right (textout_right_ex, passing the mode you would have passed to 
+text_mode() as the 'bg' parameter). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 textout_justify (textout_justify_ex, passing the mode you would have 
+passed to text_mode() as the 'bg' parameter). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 textprintf (textprintf_ex, passing the mode you would have passed to 
+text_mode() as the 'bg' parameter). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 textprintf_centre (textprintf_centre_ex, passing the mode you would have 
+passed to text_mode() as the 'bg' parameter). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 textprintf_right (textprintf_right_ex, passing the mode you would have 
+passed to text_mode() as the 'bg' parameter). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 textprintf_justify (textprintf_justify_ex, passing the mode you would have 
+passed to text_mode() as the 'bg' parameter). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 PALLETE (PALETTE). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 DAT_PALLETE (DAT_PALETTE). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 black_pallete (black_palette). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 desktop_pallete (desktop_palette) 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 get_pallete (get_palette). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 set_pallete (set_palette). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 get_pallete_range (get_palette_range) 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 set_pallete_range (set_palette_range). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 fli_pallete (fli_palette). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 pallete_color (palette_color). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 select_pallete (select_palette). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 set_clip (set_clip_rect). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 unselect_pallete (unselect_palette). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 generate_332_pallete (generate_332_palette). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 generate_optimized_pallete (generate_optimized_palette). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 yield_timeslice (rest, passing 0 as parameter) 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 retrace_proc (retrace_count or install_int). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 timer_can_simulate_retrace. 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 timer_is_using_retrace. 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 timer_simulate_retrace (when enable_triple_buffer is called, the mode-X 
+driver still enables retrace simulation automatically where possible). 
+\par \pard \li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 split_modex_screen. 
+\par}\pard \li0 \par \par \par }

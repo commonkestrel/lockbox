@@ -1,0 +1,64 @@
+#
+# DSM for make 3.80 binaries
+# Written by Eli Zaretskii <eliz@is.elta.co.il> 2002-05-18
+# Updated for 3.80 by Anbdrew Cottrell <anddjgpp@ihug.com.au> 22-Oct-2002
+#
+
+dsm-file-version: 1.4
+dsm-name: mak380b
+dsm-version: 0.4.0
+dsm-type: binaries
+
+dsm-author: Eli Zaretskii
+dsm-author-email: eliz@is.elta.co.il
+
+name: make
+version: 3.80
+manifest: mak3980b
+sources-dsm: mak380s
+short-description: GNU Make version 3.80
+long-description: GNU Make is a program\
+ to automatically rebuild files and programs
+license: GNU GPL
+author: Richard Stallman
+author: Roland McGrath
+# This is the current maintainer (until we have a maintainer: tag).
+author: Paul D. Smith
+author-email: pausmith@nortelnetworks.com
+# For reporting bugs
+mailing-list: bug-make@gnu.org
+# For getting help in using Make
+mailing-list: help-make@gnu.org
+# For discussing DJGPP- and DOS/Windows-specific aspects
+mailing-list: djgpp@delorie.com
+newsgroup: comp.os.msdos.djgpp
+
+porter: Eli Zaretskii
+porter-email: eliz@is.elta.co.il
+
+simtelnet-path: v2gnu/
+zip: mak380b.zip
+changelog: gnu/make-3.80/NEWS
+
+pre-install-readme: gnu/make-3.80/README.DOS
+
+requires: DPMI 0.9
+replaces: make < 3.80
+# On systems without an FPU, Make needs an emulator
+depends-on: djdev
+# For running Unix and GNU Makefile's
+depends-on: bash
+depends-on: fileutils
+depends-on: textutils
+depends-on: sh-utils
+depends-on: sed
+depends-on: grep
+# To DTRT with files copied from remote machines
+depends-on: djtzn
+# For reading docs
+depends-on: info-reader
+
+# This removes any old Make man pages from the Info directory
+# (the man pages now install under the man/ subdirectory)
+builtin-pre-install-script: command:\
+ rm -f /dev/env/DJDIR/info/make.1

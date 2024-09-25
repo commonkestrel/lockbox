@@ -1,0 +1,77 @@
+{\rtf\ansi\deff0\widowctrl \f0\fs20 
+{\colortbl;\red0\green0\blue0;\red255\green0\blue0;\red0\green255\blue0;\red0\green0\blue255;}
+{\fonttbl{\f0\froman\fcharset0\fprq2 Times New Roman;}
+{\f1\fmodern\fcharset0\fprq1 Courier New;}
+{\f2\froman\fcharset2\fprq2 Symbol;}}
+{\stylesheet {\widctlpar \f0\fs20 \snext0 Normal;}
+{\s1\widctlpar \f1\fs18 \sbasedon0\snext1 Quotation;}
+{\s2\widctlpar \f0\fs48\sa600\pagebb\keepn\ul \sbasedon0\snext2 Heading 1;}
+{\s3\widctlpar \f0\fs24\sb200\keepn\sa200\b \sbasedon0\snext3 Heading 2;}
+{\s4\widctlpar \f0\fs20\tqc\tx4153\tqr\tx8306 \sbasedon0\snext4 Header;}
+{\s5\widctlpar \f0\fs24\tqr\tldot\tx8640 \sbasedon0\snext0 TOC 1;}
+{\s6\widctlpar \f0\fs20\tqr\tldot\tx8640 \sbasedon0\snext0 Index 1;}}
+\par {\qc {\f0\fs48 {\b \par Common mistakes 
+\par}\par}\par}\brdrb\brdrs\brdrw15\brsp20 \par \pard \par 
+\par {\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v Contents}Contents\par }
+\par 
+{\field{\*\fldinst TOC \\t "Heading 1" }{\fldrslt {\b\i\ul\fs24\cf2 Update this field to generate the table of contents.}}}
+\par \par \par \par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v Ignoring_this_manual_}   Ignoring this manual.\par }
+{\li400 Most problems are addressed in this manual. If you aren't sure about 
+some parts of Allegro check particular section of manual. The FAQ 
+section can also be very useful. 
+\par}\par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v main___not_returning_int_}   main() not returning int.\par }
+{\li400 On platforms that need it, Allegro uses END_OF_MAIN to 
+mangle your main() function and supply its own that is required by the 
+platform. Allegro assumes that main() returns an integer, as required 
+by various C standards. If you change the return type of your main() to 
+something else Allegro's main() will get confused and return some 
+nonsense value which some system can recognize as an error and crash 
+your program. 
+\par}\par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v Semicolon_at_END_OF_MAIN_}   Semicolon at END_OF_MAIN.\par }
+{\li400 \par {\s1 \f1\fs18 
+\par          int main(void)
+\par          \{
+\par             allegro_init();
+\par             /* more stuff goes here */
+\par             ...
+\par             return 0;
+\par          \}
+\par          END_OF_MAIN(); /* wrong */ \par}
+\par The semicolon is not only unnecessary after END_OF_MAIN(), but it can 
+also cause some compilers to issue a warning. 
+\par}\par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v Getting_bitmap_s_size_}   Getting bitmap's size.\par }
+{\li400 Many people don't know how to get the dimensions of a bitmap. This can 
+be done by accessing the `w' and `h' fields of the BITMAP structure: 
+\par {\s1 \f1\fs18 
+\par          BITMAP *image;
+\par          ...
+\par          allegro_message("Bitmap size: %d x %d\\n",
+\par                          image->w, image->h);\par}
+\par}{\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v Creating_bitmaps_before_loading_}   Creating bitmaps before loading.\par }
+{\li400 \par {\s1 \f1\fs18 
+\par          BITMAP *image = create_bitmap(width, height);
+\par          image = load_bitmap("image.bmp", pal);\par}
+\par When loading a bitmap, Allegro will automatically create a bitmap big 
+enough to store it. In the above code the address returned by 
+create_bitmap() is overwritten by the second assignment statement, to 
+the return value of the call to load_bitmap().  Since the address of 
+the first (unnecessary) bitmap has been lost, there is no way to 
+destroy it so there is a memory leak. 
+\par}\par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v Loading_a_bitmap_font_sound_inside_a_global_object_constructor_}   Loading a bitmap/font/sound inside a global object constructor.\par }
+{\li400 Almost all Allegro functions require Allegro to be initialized first, 
+before they can be used. Since global object constructors are called 
+before main() (from where allegro_init() would be called) this 
+condition is violated.  You need to postpone calls to Allegro functions 
+to after initializing Allegro. 
+\par}\par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v Calling_set_color_depth_without_resetting_graphic_mode_}   Calling set_color_depth without resetting graphic mode.\par }
+{\li400 set_color_depth() tells Allegro which color depth to use the next time a 
+graphic mode is set or bitmap is created or loaded. It doesn't change 
+the color depth of the current graphic mode or existing bitmaps.  You 
+need to be sure that all your bitmaps and/or graphic mode are in the 
+same color depth or Allegro will be forced to do slow color conversions 
+between them. 
+\par}\par {\s3 \f0\fs24\sb200\keepn\sa200\b {\xe\v Destroying_global_objects_like__screen__}   Destroying global objects like `screen'.\par }
+{\li400 Unlike other bitmaps `screen' is created by calling set_gfx_mode() and 
+must not be destroyed by calling destroy_bitmap(). The proper way to 
+destroy `screen' is calling set_gfx_mode(GFX_TEXT, 0, 0, 0, 0). 
+\par \par \par \par }

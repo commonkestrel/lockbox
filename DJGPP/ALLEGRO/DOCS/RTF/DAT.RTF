@@ -1,0 +1,137 @@
+{\rtf\ansi\deff0\widowctrl \f0\fs20 
+{\colortbl;\red0\green0\blue0;\red255\green0\blue0;\red0\green255\blue0;\red0\green0\blue255;}
+{\fonttbl{\f0\froman\fcharset0\fprq2 Times New Roman;}
+{\f1\fmodern\fcharset0\fprq1 Courier New;}
+{\f2\froman\fcharset2\fprq2 Symbol;}}
+{\stylesheet {\widctlpar \f0\fs20 \snext0 Normal;}
+{\s1\widctlpar \f1\fs18 \sbasedon0\snext1 Quotation;}
+{\s2\widctlpar \f0\fs48\sa600\pagebb\keepn\ul \sbasedon0\snext2 Heading 1;}
+{\s3\widctlpar \f0\fs24\sb200\keepn\sa200\b \sbasedon0\snext3 Heading 2;}
+{\s4\widctlpar \f0\fs20\tqc\tx4153\tqr\tx8306 \sbasedon0\snext4 Header;}
+{\s5\widctlpar \f0\fs24\tqr\tldot\tx8640 \sbasedon0\snext0 TOC 1;}
+{\s6\widctlpar \f0\fs20\tqr\tldot\tx8640 \sbasedon0\snext0 Index 1;}}
+\par \par \par {\qc {\f0\fs48 {\b \par The DAT archiver 
+\par}\par}\par}\brdrb\brdrs\brdrw15\brsp20 \par \pard \par 
+\par {\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v Commandline options}Commandline options\par }
+As an alternative to the graphical grabber program, you can use the command 
+line dat utility. This accepts the following options: 
+\par \par '-a <files>' 
+\par \par Adds the named files to the datafile, for example: 
+\par \par \par {\s1 \f1\fs18 
+\par          dat myfile.dat -a title.pcx scream.wav
+\par }\par \par \par If the objects are already present in the datafile, their current 
+contents will be replaced. Names for the new objects will be generated 
+from the input filenames, and the object type will be detected from 
+the file extensions. In some cases this is ambiguous, for example a 
+PCX file can be read as a bitmap, RLE sprite, compiled sprite, or font 
+object, so you may need to explicitly specify the object type with the 
+'-t' flag. For example, to insert alien.pcx as an RLE sprite, use the 
+command: 
+\par \par \par {\s1 \f1\fs18 
+\par          dat myfile.dat -a alien.pcx -t RLE
+\par }\par \par \par '-bpp colordepth' 
+Specifies which color format bitmap data should be grabbed in (valid 
+depths are 8, 15, 16, 24, and 32 bits per pixel). 
+\par \par '-c0' - no compression 
+\par \par '-c1' - compress objects individually 
+\par \par '-c2' - global compression on the entire datafile 
+\par \par Sets the compression mode (see below). These can be used on their own 
+to convert a datafile from one format to another, or in combination 
+with any other options. 
+\par \par '-d <objects>' 
+\par \par Deletes the named objects from the datafile. 
+\par \par '-dither' 
+\par \par Dithers graphics when reducing color depths. 
+\par \par '-e <objects>' 
+\par \par Extracts the named objects from the datafile. To extract everything, 
+use the wildcard * as the object name. To set the output filename or 
+directory, use the '-o filename' option. For example, to extract an 
+object called TITLE_SCREEN to the file title.pcx, use the command: 
+\par \par \par {\s1 \f1\fs18 
+\par          dat myfile.dat -e title_screen -o title.pcx
+\par }\par \par \par To extract the entire contents of the datafile to the directory 
+c:\\output, use: 
+\par \par \par {\s1 \f1\fs18 
+\par          dat myfile.dat -e * -o c:\\output\\
+\par }\par \par \par '-f' 
+\par \par Stores the references to original files as relative filenames instead of 
+absolute filenames. This greatly increases the portability of complete 
+source trees containing the source data. 
+\par \par '-g x y w h' 
+\par \par Grabs bitmap data from a specific grid location. 
+\par \par '-h outputfile.h' 
+\par \par Sets the output header file, for exporting object index definitions. 
+This may be used on its own to produce a header file from an existing 
+datafile, or in combination with any other commands. You can also use 
+the '-p prefixstring' option to set a prefix string for the object 
+definitions. 
+\par \par '-k' 
+\par \par Keep original names while grabbing objects. Without this switch, a 
+file called image.pcx will be imported as an object called IMAGE_PCX, 
+to ensure that all the object names are valid symbols for the output 
+header defines. 
+\par \par '-l' 
+\par \par Lists the contents of the datafile. This can be combined with the '-v' 
+option to list object properties along with the names, and you can 
+specify particular objects to produce a partial listing. 
+\par \par '-m dependencyfile' 
+\par \par Writes a set of makefile dependencies into the specified file, which 
+can be used to automatically update the file whenever any of the 
+source data changes. 
+\par \par '-n0' - no sort: list the objects in the order they were added 
+\par \par '-n1' - sort the objects of the datafile alphabetically by name 
+\par \par Sets the sort mode (see below). These can be used on their own to 
+sort the objects of the datafile, or in combination with any other 
+options. 
+\par \par '-o output' 
+\par \par Sets the output file or directory when extracting data. 
+\par \par '-p prefixstring' 
+\par \par Sets the prefix for the output header file. 
+\par \par '-pal objectname' 
+\par \par Specifies which palette to use. 
+\par \par '-r' 
+\par \par Recursively adds directories as nested datafiles. This makes it possible 
+to maintain the data hierarchy within the datafile. 
+\par \par '-s0' - no strip: save everything 
+\par \par '-s1' - strip grabber specific information from the file 
+\par \par '-s2' - strip all object properties and names from the file 
+\par \par '-s-PROP' do not strip object property PROP from the file 
+\par \par Sets the strip mode (see below). These can be used on their own to 
+strip properties from the datafile, or in combination with any other 
+options. 
+\par \par '-t type' 
+\par \par Sets the object type when adding files. 
+\par \par '-transparency' 
+\par \par Preserves transparency when converting between color depths. 
+\par \par '-u' 
+\par \par Updates the contents of the datafile. See below. 
+\par \par '-v' 
+\par \par Selects verbose mode. This can be used in combination with any other 
+options to produce more detailed output. 
+\par \par '-w' 
+\par \par Always updates the entire contents of the datafile. 
+\par \par '-x <objects>' 
+\par \par Alias for '-e <objects>'. 
+\par \par '-007 password' 
+\par \par Sets the file encryption key. 
+\par \par '<objects> PROP=value' 
+\par \par Sets properties for the specified objects. This works like environment 
+variables, in that setting a property to an empty string removes it. 
+Because object names are stored as NAME properties, you can use this 
+command to rename objects. For example, to rename MY_OBJECT to 
+WHAT_A_SILLY_NAME, use the command: 
+\par \par \par {\s1 \f1\fs18 
+\par          dat myfile.dat my_object NAME=what_a_silly_name
+\par }\par \par \par You can use the wildcard * to apply the property to everything in the 
+file, so to remove the ORIG property from the entire datafile, you 
+could execute: 
+\par \par \par {\s1 \f1\fs18 
+\par          dat myfile.dat * ORIG=
+\par }\par \par \par You can create hierarchical nested datafiles by inserting one datafile into 
+another with the '-a' command. Objects in the nested datafile can then be 
+referred to by as "parentname/objectname". For example if the datafile 
+myfile.dat contains a nested datafile called nestedfile, which contains a 
+bitmap called thepicture, you could export the bitmap with the command: 
+\par \par \par {\s1 \f1\fs18 
+\par          dat myfile.dat -e nestedfile/thepicture -o output.pcx
+\par }\par \par \par \par \par \par \par \par \par }

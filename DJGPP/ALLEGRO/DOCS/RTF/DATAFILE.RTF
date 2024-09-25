@@ -1,0 +1,295 @@
+{\rtf\ansi\deff0\widowctrl \f0\fs20 
+{\colortbl;\red0\green0\blue0;\red255\green0\blue0;\red0\green255\blue0;\red0\green0\blue255;}
+{\fonttbl{\f0\froman\fcharset0\fprq2 Times New Roman;}
+{\f1\fmodern\fcharset0\fprq1 Courier New;}
+{\f2\froman\fcharset2\fprq2 Symbol;}}
+{\stylesheet {\widctlpar \f0\fs20 \snext0 Normal;}
+{\s1\widctlpar \f1\fs18 \sbasedon0\snext1 Quotation;}
+{\s2\widctlpar \f0\fs48\sa600\pagebb\keepn\ul \sbasedon0\snext2 Heading 1;}
+{\s3\widctlpar \f0\fs24\sb200\keepn\sa200\b \sbasedon0\snext3 Heading 2;}
+{\s4\widctlpar \f0\fs20\tqc\tx4153\tqr\tx8306 \sbasedon0\snext4 Header;}
+{\s5\widctlpar \f0\fs24\tqr\tldot\tx8640 \sbasedon0\snext0 TOC 1;}
+{\s6\widctlpar \f0\fs20\tqr\tldot\tx8640 \sbasedon0\snext0 Index 1;}}
+\par \par \par {\qc {\f0\fs48 {\b \par Datafiles format information. 
+\par}\par}\par}\brdrb\brdrs\brdrw15\brsp20 \par \pard \par 
+\par {\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v Contents}Contents\par }
+\par 
+{\field{\*\fldinst TOC \\t "Heading 1" }{\fldrslt {\b\i\ul\fs24\cf2 Update this field to generate the table of contents.}}}
+\par \par \par {\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v Introduction}Introduction\par }
+An Allegro datafile is a bit like a zip file in that it consists of lots of 
+different pieces of data stuck together one after another, and optionally 
+compressed. This means that your game doesn't have to clutter up the disk 
+with hundreds of tiny files, and it makes programming easier because you can 
+load everything with a single function call at program startup. Another 
+benefit is that the LZSS file compression algorithm works much better with 
+one large file than with many small ones. 
+\par \par Datafiles have the extension .dat, and can be created and edited with the 
+graphical grabber program or the command line dat utility. They can be 
+stored as separate files and loaded into memory by the load_datafile() 
+function, or you can use dat2s to convert them into asm code which can then 
+be linked directly into your executable. 
+\par {\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v Objects}Objects\par }
+Each datafile contains a number of objects, of varying types. Object types 
+are represented by 32 bit integer ID's, which are interpreted as four 
+character ASCII strings. These ID's can be constructed with the DAT_ID() 
+macro, for example a DATA object is represented by DAT_ID('D','A','T','A'), 
+or you can use the predefined DAT_* constants for the standard data types: 
+\par \par \par {\li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 DAT_FILE - "FILE"\par \pard \li400 
+A datafile, which contains a list of other objects. Datafile objects 
+can be nested inside other datafiles, allowing you to create 
+hierarchical structures of any depth. 
+\par \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 DAT_DATA - "DATA"\par \pard \li400 
+A block of binary data. Allegro treats all unknown types as binary 
+data objects, so you don't need to use this ID: you can create custom 
+object formats using whatever ID's you like. 
+\par \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 DAT_FONT - "FONT"\par \pard \li400 
+A font. 
+\par \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 DAT_SAMPLE - "SAMP"\par \pard \li400 
+A digital sound sample. 
+\par \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 DAT_MIDI - "MIDI"\par \pard \li400 
+A MIDI file. 
+\par \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 DAT_PATCH - "PAT "\par \pard \li400 
+A Gravis patch (MIDI instrument). 
+\par \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 DAT_FLI - "FLIC"\par \pard \li400 
+An FLI or FLC animation. 
+\par \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 DAT_BITMAP - "BMP "\par \pard \li400 
+A bitmap. 
+\par \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 DAT_RLE_SPRITE - "RLE "\par \pard \li400 
+A run length encoded sprite. 
+\par \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 DAT_C_SPRITE - "CMP "\par \pard \li400 
+A compiled sprite. 
+\par \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 DAT_XC_SPRITE - "XCMP"\par \pard \li400 
+A mode-X compiled sprite. 
+\par \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 DAT_PALETTE - "PAL "\par \pard \li400 
+A 256 color palette. 
+\par \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 DAT_PROPERTY - "prop"\par \pard \li400 
+An object property (see below). You will never directly encounter this 
+object type, but you should be aware that it is treated specially by 
+the datafile code. 
+\par \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 DAT_INFO - "info"\par \pard \li400 
+The grabber utility uses this object to store information about the 
+datafile. Like property objects, you ought never to encounter it, but 
+you should avoid using the ID for any custom object formats you create. 
+\par \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 DAT_END - -1\par \pard \li400 
+Special marker used to indicate the end of a datafile. 
+\par}{\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v Properties}Properties\par }
+Each object can have any number of properties attached to it. These are 
+ASCII strings describing attributes of the object, such as its name and 
+where it came from. Like the objects themselves, properties are identified 
+by 32 bit integer ID's which are constructed from four character strings by 
+the DAT_ID() macro. Allegro defines the standard properties: 
+\par \par \par {\li400 \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 "NAME"\par \pard \li400 
+The name of the object. 
+\par \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 "ORIG"\par \pard \li400 
+The object's origin, ie. the name of the file from which it was 
+grabbed. 
+\par \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 "DATE"\par \pard \li400 
+A timestamp, used by the update command in the grabber and dat 
+utilities. This is the modification time of the file from which the 
+object was grabbed, in "m-dd-yyyy, hh:mm" format. 
+\par \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 "XPOS"\par \pard \li400 
+For bitmap objects which were grabbed from part of a larger image, the 
+x position of the origin within the parent bitmap. 
+\par \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 "YPOS"\par \pard \li400 
+For bitmap objects which were grabbed from part of a larger image, the 
+y position of the origin within the parent bitmap. 
+\par \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 "XSIZ"\par \pard \li400 
+For bitmap objects which were grabbed from part of a larger image, the 
+width of the selected region. 
+\par \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 "YSIZ"\par \pard \li400 
+For bitmap objects which were grabbed from part of a larger image, the 
+height of the selected region. 
+\par \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 "XCRP"\par \pard \li400 
+For autocropped bitmap objects, the amount of cropping on the left of 
+the image. 
+\par \par {\pntext\f2\fs16 \'b7\tab}
+{\*\pn \pnlvlblt\pnf2\pnfs16\pnindent250{\pntxtb \'b7}}
+\fi-250\li400 "YCRP"\par \pard \li400 
+For autocropped bitmap objects, the amount of cropping at the top of 
+the image. 
+\par}\par \par \par You can use whatever other ID's you like to store custom information about 
+your objects (the grabber internally use some other properties stored in a 
+hidden DAT_INFO object, so they won't conflict with yours). 
+\par {\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v File format specification}File format specification\par }
+In case anyone wants to do some serious hackery, and for my own future 
+reference, here are some details of the innards of the datafile format. 
+\par \par Note that this is different to the datafile format used by Allegro versions 
+2.1 and earlier. Allegro can still load files from the old format, but it 
+was much less flexible and didn't support nice things like object 
+properties, so you should load any old files into the grabber and save them 
+out again to convert to the new format. 
+\par \par Nb. if all you want to do is write a utility that manipulates datafiles in 
+some way, the easiest approach is probably to use the helper functions in 
+datedit.c, which are currently shared by the dat, dat2s, and grabber 
+programs. These functions handle loading, saving, inserting and deleting 
+objects, and modifying the contents of datafiles in various ways, but life 
+is too short for me to bother documenting them all here. Look at the 
+source... 
+\par \par Anyway. All numbers are stored in big-endian (Motorola) format. All text is 
+stored in UTF-8 encoding. A datafile begins with one of the 32 bit values 
+F_PACK_MAGIC or F_NOPACK_MAGIC, which are defined in allegro.h. If it starts 
+with F_PACK_MAGIC the rest of the file is compressed with the LZSS 
+algorithm, otherwise it is uncompressed. This magic number and optional 
+decompression can be handled automatically by using the packfile functions 
+and opening the file in F_READ_PACKED mode. After this comes the 32 bit 
+value DAT_MAGIC, followed by the number of objects in the root datafile (not 
+including objects nested inside child datafiles), followed by each of those 
+objects in turn. 
+\par \par Each object is in the format: 
+\par \par \par {\s1 \f1\fs18 
+\par    OBJECT =
+\par       var    - <property list>      - any properties relating to the object
+\par       32 bit - <type ID>            - object type ID
+\par       32 bit - <compressed size>    - size of the raw data in the file
+\par       32 bit - <uncompressed size>  - see below
+\par       var    - <data>               - the contents of the object
+\par }\par \par \par The property list can contain zero or more object properties, in the form: 
+\par \par \par {\s1 \f1\fs18 
+\par    PROPERTY =
+\par       32 bit - <magic>              - "prop"
+\par       32 bit - <type ID>            - property type ID
+\par       32 bit - <size>               - size of the property string, in bytes
+\par       var    - <data>               - property string, _not_ null-terminated
+\par }\par \par \par If the uncompressed size field in an object is positive, the contents of the 
+object are not compressed (ie. the raw and compressed sizes should be the 
+same). If the uncompressed size is negative, the object is LZSS compressed, 
+and will expand into -<uncompressed size> bytes of data. The easiest way to 
+handle this is to use the pack_fopen_chunk() function to read both the raw 
+and compressed sizes and the contents of the object. 
+\par \par The contents of an object vary depending on the type. Allegro defines the 
+standard types: 
+\par \par \par {\s1 \f1\fs18 
+\par    DAT_FILE =
+\par       32 bit - <object count>       - number of objects in the sub-file
+\par       var    - <object list>        - objects in the same format as above
+\par 
+\par    DAT_FONT =
+\par       16 bit - <font size>          - 8, 16, -1, or 0
+\par 
+\par       if font size == 8 \{           - obsolete as of version 3.9.x!
+\par          unsigned char[95][8]       - 8x8 bit-packed font data
+\par       \}
+\par 
+\par       if font size == 16 \{          - obsolete as of version 3.9.x!
+\par          unsigned char[95][16]      - 8x16 bit-packed font data
+\par       \}
+\par 
+\par       if font size == -1 \{          - obsolete as of version 3.9.x!
+\par          95x \{
+\par             16 bit - <width>        - character width
+\par             16 bit - <height>       - character height
+\par             var    - <data>         - character data (8 bit pixels)
+\par          \}
+\par       \}
+\par 
+\par       if font size == 0 \{           - new format introduced in version 3.9.x
+\par          16 bit - <ranges>          - number of character ranges
+\par          for each range \{
+\par             8 bit  - <mono>         - 1 or 8 bit format flag
+\par             32 bit - <start>        - first character in range
+\par             32 bit - <end>          - last character in range (inclusive)
+\par             for each character \{
+\par                16 bit - <width>     - character width
+\par                16 bit - <height>    - character height
+\par                var    - <data>      - character data
+\par             \}
+\par          \} 
+\par       \}
+\par 
+\par    DAT_SAMP =
+\par       16 bit - <bits>               - sample bits (negative for stereo)
+\par       16 bit - <freq>               - sample frequency
+\par       32 bit - <length>             - sample length
+\par       var    - <data>               - sample data
+\par 
+\par    DAT_MIDI =
+\par       16 bit - <divisions>          - MIDI beat divisions
+\par       32x \{
+\par          32 bit - <length>          - track length, in bytes
+\par          var    - <data>            - MIDI track data
+\par       \}
+\par 
+\par    DAT_FLI =
+\par       var - <data>                  - FLI or FLC animation, standard format
+\par 
+\par    DAT_BITMAP =
+\par    DAT_C_SPRITE =
+\par    DAT_XC_SPRITE =
+\par       16 bit - <bits>               - bitmap color depth
+\par       16 bit - <width>              - bitmap width
+\par       16 bit - <height>             - bitmap height
+\par       var    - <data>               - bitmap data
+\par 
+\par       Valid color depths are 8, 15, 16, 24, 32, and -32. Both 15 and 16 bit 
+\par       images are stored in 5.6.5 RGB format, and 24 and 32 bit images as 
+\par       8.8.8 RGB. The special -32 flag indicates that the data is in true 32 
+\par       bit RGBA format.
+\par 
+\par    DAT_RLE_SPRITE =
+\par       16 bit - <bits>               - sprite color depth
+\par       16 bit - <width>              - sprite width
+\par       16 bit - <height>             - sprite height
+\par       32 bit - <size>               - data size, in bytes
+\par       var    - <data>               - RLE compressed sprite data
+\par 
+\par       Valid color depths are 8, 15, 16, 24, 32. and -32. Both 15 and 16 bit 
+\par       images are stored in 5.6.5 RGB format with 16 bit skip counts and EOL 
+\par       markers, and 24 and 32 bit images as 8.8.8 RGB. with 32 bit skip 
+\par       counts and markers. The special -32 flag indicates that the data is in 
+\par       true 32 bit RGBA format.
+\par 
+\par    DAT_PALETTE =
+\par       256 x \{
+\par          8 bit - <red>              - red component, 0-63
+\par          8 bit - <green>            - green component, 0-63
+\par          8 bit - <blue>             - blue component, 0-63
+\par          8 bit - <pad>              - alignment padding
+\par       \}
+\par }\par \par \par I think that covers everything. 
+\par \par }

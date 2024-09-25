@@ -1,0 +1,95 @@
+{\rtf\ansi\deff0\widowctrl \f0\fs20 
+{\colortbl;\red0\green0\blue0;\red255\green0\blue0;\red0\green255\blue0;\red0\green0\blue255;}
+{\fonttbl{\f0\froman\fcharset0\fprq2 Times New Roman;}
+{\f1\fmodern\fcharset0\fprq1 Courier New;}
+{\f2\froman\fcharset2\fprq2 Symbol;}}
+{\stylesheet {\widctlpar \f0\fs20 \snext0 Normal;}
+{\s1\widctlpar \f1\fs18 \sbasedon0\snext1 Quotation;}
+{\s2\widctlpar \f0\fs48\sa600\pagebb\keepn\ul \sbasedon0\snext2 Heading 1;}
+{\s3\widctlpar \f0\fs24\sb200\keepn\sa200\b \sbasedon0\snext3 Heading 2;}
+{\s4\widctlpar \f0\fs20\tqc\tx4153\tqr\tx8306 \sbasedon0\snext4 Header;}
+{\s5\widctlpar \f0\fs24\tqr\tldot\tx8640 \sbasedon0\snext0 TOC 1;}
+{\s6\widctlpar \f0\fs20\tqr\tldot\tx8640 \sbasedon0\snext0 Index 1;}}
+\par {\qc {\f0\fs48 {\b \par Allegro `const'-correctness 
+\par}\par}\par}\brdrb\brdrs\brdrw15\brsp20 \par \pard \par 
+{\i \par \par This is a short document about the introduction of `const'-correctness 
+to Allegro. It details what changes have occurred to internal library 
+code, the API changes (mainly transparent) and what you will need to do 
+to adapt code to compile without warnings (again, mainly nothing). 
+\par}{\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v Contents}Contents\par }
+\par 
+{\field{\*\fldinst TOC \\t "Heading 1" }{\fldrslt {\b\i\ul\fs24\cf2 Update this field to generate the table of contents.}}}
+\par \par \par {\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v Library changes}Library changes\par }
+There are very few actual changes to the library code itself; only some 
+symbol declarations and definitions have been altered to include 
+AL_CONST. See below for a description of the AL_CONST preprocessor 
+define. In a few places, some string was changed that should not have 
+been - in these cases, the string is simply duplicated and then the 
+duplicate is erased on exiting the function. 
+\par \par In all, there were very few changes to the library code. 
+\par {\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v The AL_CONST preprocessor define}The AL_CONST preprocessor define\par }
+In order to support compilers which don't know about the `const' 
+keyword, or perhaps use a different keyword, the preprocessor symbol 
+AL_CONST is used wherever `const' would normally be used. Note that in 
+the documentation, I have used `const' for readability. 
+\par {\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v Allegro API changes}Allegro API changes\par }
+These are, generally speaking, totally transparent to the user. I did 
+not change the behaviour of any function; only its parameter types. 
+Basically, if you can pass it as type* ptr, then you can 
+pass it as const type* ptr without any problem whatsoever. 
+Note also that certain changes may remove warnings in your program as 
+static strings, etc, are now treated as `const' by Allegro functions. 
+\par \par There are a few places, described below, where there will be an effect 
+on existing code. 
+\par \par `const'-correctness is deemed important for two reasons. Firstly, it can 
+increase code readability and comprehension of Allegro functions (for 
+instance, you can see which parameters are altered and which are not). 
+Secondly, it ensures that the Allegro code is not changing data which it 
+should not be, and that client callback functions are not breaking 
+Allegro by changing data they should not be. 
+\par {\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v Callback functions and Pointers to Pointers}Callback functions and Pointers to Pointers\par }
+Certain callback functions now have a different type - they take `const' 
+pointers as opposed to non-`const' pointers. As far as I know, a 
+compiler will issue a warning about incompatible pointer types. You 
+should update your callback function to the new format (which will be 
+listed in the main Allegro documentation). 
+\par \par Also, when passing a pointer to a pointer to an Allegro function which 
+is declared as taking an AL_CONST type** ptr, you will need 
+to cast your pointer to be `const' if it is not already. For instance: 
+\par {\s1 \f1\fs18 
+\par    int some_allegro_function(AL_CONST char** p);
+\par    
+\par    void my_func(char** x)
+\par    \{
+\par        some_allegro_function((AL_CONST char**) x);
+\par    \}
+\par }\par I realise that this is a change to the Allegro API, and that we are 
+supposed to avoid those at all costs, but this is essentially fixing a 
+bug in Allegro and changing behaviour. It also ensures that 
+client-supplied callback functions are functioning correctly, and not 
+altering data that they should not. Callback functions which do not 
+treat relevant parameters as `const' are, in a small (but potentially 
+signficant) way, broken. 
+\par \par Please note that for the Unicode function ugetx(), I have provided an 
+alternative version ugetxc(), which takes a `const char**' parameter as 
+opposed to a `char**' parameter. This is because it is valid to pass 
+either a `char**' or a `const char**', but unfortunately there is no way 
+to tell the compiler exactly what we mean. 
+\par {\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v BITMAP objects}BITMAP objects\par }
+Allegro represents both a screen bitmap and a memory bitmap by a single 
+object; a BITMAP. Unfortunately, these two things can be very different. 
+For instance, reading a pixel from a bitmap would not seem to change it, 
+but if it is a screen bitmap we are reading from, then it is possible 
+that some parameter of the video card is changed to select the correct 
+line, etc. 
+\par \par Therefore, a const BITMAP parameter does not make sense, and is not used 
+throughout the library. This is unfortunate, but I cannot see any way 
+around it. 
+\par {\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v Finally...}Finally...\par }
+Allegro `const'-correctness has been tested for quite enough time to say 
+that it is working OK. However, if you still find problems with a compiler, 
+please contact the Allegro mailing list; see `Contact info' in the Allegro 
+documentation (readme.txt). 
+\par \par Email: lwithers@lwithers.demon.co.uk. 
+\par \par Thanks for listening :-) 
+\par \par \par \par }

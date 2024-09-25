@@ -1,0 +1,942 @@
+{\rtf\ansi\deff0\widowctrl \f0\fs20 
+{\colortbl;\red0\green0\blue0;\red255\green0\blue0;\red0\green255\blue0;\red0\green0\blue255;}
+{\fonttbl{\f0\froman\fcharset0\fprq2 Times New Roman;}
+{\f1\fmodern\fcharset0\fprq1 Courier New;}
+{\f2\froman\fcharset2\fprq2 Symbol;}}
+{\stylesheet {\widctlpar \f0\fs20 \snext0 Normal;}
+{\s1\widctlpar \f1\fs18 \sbasedon0\snext1 Quotation;}
+{\s2\widctlpar \f0\fs48\sa600\pagebb\keepn\ul \sbasedon0\snext2 Heading 1;}
+{\s3\widctlpar \f0\fs24\sb200\keepn\sa200\b \sbasedon0\snext3 Heading 2;}
+{\s4\widctlpar \f0\fs20\tqc\tx4153\tqr\tx8306 \sbasedon0\snext4 Header;}
+{\s5\widctlpar \f0\fs24\tqr\tldot\tx8640 \sbasedon0\snext0 TOC 1;}
+{\s6\widctlpar \f0\fs20\tqr\tldot\tx8640 \sbasedon0\snext0 Index 1;}}
+\par {\qc {\f0\fs48 {\b {\i \par The Hall of Fame\par}\par}\par}\par}\brdrb\brdrs\brdrw15\brsp20 \par \pard \par {\i \par We hope to have remembered everyone who ought to be mentioned here. If your 
+name should be included, accept our apologies, and please tell us so we can 
+correct the oversight! 
+\par}{\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v Contributors}Contributors\par }
+Acho A. Tang (acho at telus dot net).\par 
+Added a Sidewinder Precision Pro joystick driver to the DOS port. 
+\par \par Adrian Oboroc (doba at corefx dot com).\par 
+Wrote the LBM loader. 
+\par \par aj.\par 
+Reported many problems, suggested a lot of improvements to the 
+documentation, added AMD64/IA64/SSE3 detection code, added DirectX 8 and 9 
+detection to the Windows port, added MSVC7 specific options to the makefile, 
+cleaned up a C99-ism in makedoc, fixed a beep when alt+character was pressed 
+in windowed mode in Windows and made TARGET_ARCH_EXCL also work with MSVC. 
+\par \par Alex Demko (alex_demko at mbnet dot mb dot ca).\par 
+Suggested lots of improvements to the datafile system and provided code 
+for handling the 8x16 BIOS font format. 
+\par \par Alessandro Monopoli (almonopo at tin dot it).\par 
+Added the Italian translation of the system messages. 
+\par \par Andreas Kluge (bitland at aol dot com).\par 
+Wrote the Ensoniq Soundscape driver and fixed division bugs in the fix 
+class. 
+\par \par Andrei Ellman (ae-a-alleg2 at wacko dot wackonet dot net).\par 
+Contributed the polygon_z_normal() function, suggested some additions to 
+the docs, updated the Cygwin section in docs/build/mingw32.txt, got 
+Allegro for MSVC to build with Cygwin, improved the performance of the 
+hsv_to_rgb() function, corrected a rounding issue in hsv_to_rgb(), 
+improved the exrgbhsv example and the Windows screensaver, fixed problems 
+in the MSVC makefile when using Cygwin and did plenty of other things too. 
+\par \par Andrew Cottrell (andrewc at dbworld dot net dot au).\par 
+Changed the grabber to use a more robust (locale-independent) date format. 
+\par \par Andrew Ellem (krand at ican dot net).\par 
+Wrote the original version of the digital audio streaming code. 
+\par \par Andrew Geers (andy at geerswj dot clara dot net).\par 
+Added the -ppassword and -nosound options to the grabber, scrolling 
+support in the image viewer and the flipped rotated sprite routines. 
+\par \par Andy Goth (unununium at openverse dot com).\par 
+Made the gfx_card config variable more flexible, added the 256x256 tweaked 
+VGA mode, wrote the d_text_list_proc() dialog object and fixed the 
+constructor support in dat2s on Unix. 
+\par \par Angelo Mottola (a dot mottola at libero dot it).\par 
+Added the BeOS joystick, MIDI and windowed graphics drivers, added mouse 
+wheel, display switching and close button support for BeOS, wrote the 
+DGA2 driver and close button support for X, contributed the bfixicon 
+utility, added triple buffering support, a BWindow-based windowed driver 
+and a fullscreen overlay driver to the BeOS port and reorganized its gfx 
+subsystem. And, oh, contributed the QNX and MacOS X ports too. 
+\par \par Annie Testes (annie at kezako dot net).\par 
+Added font_height, render_char, char_length hooks to FONT_VTABLE, fixed 
+several glitches in the unicode support, added a pack_fdopen() function, 
+caught a misordering in the X system shutdown, fixed some device name 
+strings, lifted several hardcoded length limitations in the configuration 
+routines, added a mouse driver based on the event interface (EVDEV) to the 
+Linux port, fixed numerous bugs and did plenty of other things too. 
+\par \par Anthony 'Timorg' Cassidy.\par 
+Made d_menu_proc fill up its assigned area with the gui_bg_color. 
+\par \par Antoine Mathys (mmathys at bluewin dot ch).\par 
+Added the Swiss keyboard mapping. 
+\par \par Anton Ragnarsson (anton dot ragnarsson at swipnet dot se).\par 
+Contributed the Swedish keyboard mapping table. 
+\par \par Antti Haapala (ztane at lyseo dot edu dot ouka dot fi).\par 
+Fixed the setup program to display the right frequency list for each 
+type of soundcard and contributed the Finnish translation of the system 
+messages. 
+\par \par Antti Koskipaa (antti dot koskipaa at nic dot fi).\par 
+Wrote the DOS driver for WSS (Windows Sound System) cards. 
+\par \par Arne Steinarson (arst at ludd dot luth dot se).\par 
+The fixed point square root routine came from his fix-float library. 
+\par \par Arthur Huillet (email unknown).\par 
+Fixed a typo in the docs. 
+\par \par Attila Szilagyi (attilabox at hotmail dot com).\par 
+Fixed SVGAlib horizontal scrolling. 
+\par \par Ben Chauveau (bendomc at worldnet dot fr).\par 
+Added support for Tseng ET6000 cards (now available as part of the 
+FreeBE/AF project). 
+\par \par Ben Darnell (bdarnell at vnet dot net).\par 
+Put together the 2.11 release of Allegro while I was away from the net 
+and wrote the original version of the Allegro FAQ. 
+\par \par Ben Davis (entheh at users dot sf dot net).\par 
+Added set_volume_per_voice(), made silent voices continue playing, 
+fixed other minor bugs in the mixer, fixed a bug in create_rgb_table(), 
+adapted polygon functions to handle two coincident vertices, added the 
+set_window_close_button() and set_window_close_hook() framework, added 
+support for timers with parameters under Windows, corrected several 
+compilation warnings and documented the behaviour of pack_feof(). 
+\par \par Benjamin Joel Stover (stovertech at intellisys dot net).\par 
+Wrote the initial version of the fullscreen X-Windows graphics driver. 
+\par \par Benny Colyn (email unknown).\par 
+Added a Dutch translation. 
+\par \par Bertrand Coconnier (bcoconni at club-internet dot fr).\par 
+Modified 3D polygones routines for subpixel and subtexel accuracy, made 
+speed enhancements in these routines, fixed blending in C version of 
+atex_lit scanline functions, added scanline subdivisions in C scanline 
+functions and Z-buffer polygon functions and merged in Calin Andrian's 
+P3D library. 
+\par \par Bobby Ferris (baf at bafsoft dot com).\par 
+Added the SciTE API output format to makedoc and temporarily hosted 
+Allegro's SVN repository while SourceForge's SVN was in beta. 
+\par \par Burton Radons (loth at gec dot net).\par 
+Optimised the truecolor pixel blending function, converted the blenders 
+to the new single-handler format, and added the range of 
+Photoshop-compatible blender functions. 
+\par \par Calin Andrian (calin at ibd dot dbio dot ro).\par 
+Wrote the truecolor, MMX, 3DNow!, masked lit mode, translucent and 
+Z-buffered polygon rendering routines, the clip3d_f() function and also 
+the scanline sorting functions for 3D scene rendering, and his P3D 
+addon library was merged in. 
+\par \par Calvin French (frenchc at home dot com).\par 
+Added the -w (always update) switch to dat.exe. 
+\par \par Carsten Schmidt (email unknown).\par 
+Wrote the the initial version of the Linux GGI driver. 
+\par \par Carsten Sorensen (csorensen at ea dot com).\par 
+Wrote the the ESS AudioDrive soundcard driver. 
+\par \par Catatonic Porpoise ().\par 
+Added OpenBSD detection, fixed an issue with executable rights not set 
+on the memory for the i386 stretcher on UNIX systems, and fixed the 
+documentation for stretch_sprite. 
+\par \par Cloud Wu (cloudwu at 263 dot net).\par 
+Optimised the truecolor pixel blending functions. 
+\par \par Charles Bilyue (Esaelon at aol dot com).\par 
+Optimized the i386 blitters and suggested to not force yielding timeslice 
+with non-blocking menus. 
+\par \par Charles Wardlaw (kattkieru at yahoo dot com).\par 
+Fixed warnings with gcc 4 on MacOS X and helped resolve a problem with 
+setAppleMenu under Tiger. 
+\par \par Chris Graham (chris_graham at postmark dot net).\par 
+Suggested to add a new flag for Windows NTFS compressed files. 
+\par \par Chris Jones (cj at jibblers dot plus dot com).\par 
+Fixed a bug with 16-bit samples loading, worked around a problem with DOS 
+file attributes under Win2k, let the MIDI player pass controller events to 
+the raw player by default, made the MIDI player handle the 'All Sound Off' 
+controller message, added support for the bitfield compressed BMP image 
+format, fixed the behavior of numeric keys when NumLock is on, and fixed 
+loading of certain .wav files. 
+\par \par Chris La Mantia (celamantia at home dot com).\par 
+Wrote the d_radio_proc(), d_icon_proc(), and d_slider_proc() dialog 
+objects, added the D_DISABLED flag, improved the GUI handling of 
+different font heights, and added the right aligned text functions. 
+\par \par Chris Robinson (crobin_99 at yahoo dot com).\par 
+Wrote the fixed point clip3d() function, improved the performance of the 
+DIGMID driver, implemented the digmid_set_pan function, rewrote part of 
+the Allegro mixer, made the Allegro mixer the default one in Windows, 
+improved the threaded UNIX timer code, helped improve responsiveness under 
+X11, tweaked tests/play.c, added drawing primitives and video bitmap locking 
+to the X11 port and did plenty of other things too. 
+\par \par Christer Sandberg (christer dot sandberg at mdh dot se).\par 
+Made dat2c work better with ISO C90 compilers, made dat2c correctly detect 
+the native line ending, fixed a problem with the include guard generated 
+by dat2c, fixed a bug in the 24-bit graphics code of fixup_datafile(), 
+fixed a problem with Electric Fence. 
+\par \par Christian Schueler (cschueler at gmx dot de).\par 
+Changed the optimisation settings for better performance. 
+\par \par Daniel Nilsson (daniel7 at algonet dot se).\par 
+Enlarged the starfield in exstars, and fixed an incorrect range in 
+exlights. 
+\par \par Daniel Schlyder (daniel at bitblaze dot com).\par 
+Fixed problems with get_executable_name() under Windows, another one with 
+set_window_title() under BeOS, potentially unsafe constructs in the 
+Windows code, the installall makefile target under Windows, added 
+set_allegro_resource_path(), fixed make uninstall with mingw make, 
+added ALLEGRO_LIB_BUILD flag for gcc variants not using configure, 
+fixed a bunch of warnings in MinGW and did plenty of other things too. 
+\par \par Daniel Verkamp (i_am_drv at users dot sourceforge dot net).\par 
+Added a MIDI input driver to the Windows port anda dded support for .rmi 
+MIDI files to the MIDI loader. 
+\par \par Dark Nation (email unknown).\par 
+Restored support for old-style encrypted packfiles, which had been removed 
+in 4.1.18. 
+\par \par David A. Capello (dacap at users dot sourceforge dot net).\par 
+Made dotted_rect() avoid bank switches, fixed a problem with lost GUI 
+mouse clicks, made d_menu_proc() steal/return focus when activated then 
+deactivated, fixed a problem with submenus, fixed a bug with FLI frames 
+containing odd-sized chunks, made makedoc write sub-section headings 
+for .txt output, made override_config_file also be used for writing to 
+the config file and did plenty of other things too. 
+\par \par David Kuhling (dkuelhin at hell1og dot be dot schule dot de).\par 
+Optimised the fsqrt() routine, and added fhypot(). 
+\par \par Dave Physics.\par 
+Some documentation fixes. 
+\par \par Dave Thomson (gameskitchen at geocities dot com).\par 
+Added the RGB <-> HSV conversion routines, the autocrop function to 
+the grabber and wrote the 3d starfield example program (exstars.exe). 
+\par \par David Calvin (calvid at rpi dot edu).\par 
+Wrote the original version of the sound setup utility. 
+\par \par David Cullen (dcullen7 at bellsouth dot net).\par 
+Added multiple bullets and extra lives to the demo game. 
+\par \par Deepak T (coolbool at gmx dot net).\par 
+Fixed clipping in three C sprite drawing routines. 
+\par \par Dennis Busch (email unknown).\par 
+Fixed a bug in d_clear_proc, fixed a Unicode bug in the mode selector, 
+and fixed the short description of add_clip_rect. 
+\par \par Dmitriy Kazimirow (mariann at mail dot ru).\par 
+Provided the Russian keyboard mapping and message translation files. 
+\par \par Dominique Biesmans (Dominique dot Biesmans at ping dot be).\par 
+Wrote the mode-X version of draw_sprite() and the mode-X <-> linear 
+blitting functions. 
+\par \par Doug Eleveld (D dot J dot Eleveld at anest dot azg dot nl).\par 
+Wrote the d_textbox_proc() dialog object and the new grabber help system. 
+\par \par Dustin Dettmer (dustin at mize dot org).\par 
+Spotted a typo in save_bitmap. 
+\par \par Eduard Bloch (edi at gmx dot de).\par 
+Fixed a freeze caused by the ESD detection code, fixed a bad behaviour 
+of the config routines and suggested better ways to find the path to 
+the executable on Unix. 
+\par \par Edward Boone (Lucien dot Boone at ping dot be).\par 
+Provided scancode mapping tables for the AZERTY keyboard layout. 
+\par \par Elias Pschernig (elias at users dot sf dot net).\par 
+Added a COLORCONV_KEEP_TRANS mode, contributed the wfixicon utility, 
+contributed several enhancements to the grabber, fixed menu dimensions in 
+the GUI engine, fixed the get_camera_matrix*() functions, added support 
+for the CHM and Devhelp documentation formats, fixed a bug in midi_seek(), 
+made load_datafile_object() load the object properties, made the GUI code 
+scare the mouse more intelligently and did plenty of other things too. 
+\par \par Eric Botcazou (ebotcazou at libertysurf dot fr).\par 
+Made the DGA driver work better in 8bpp and 32bpp modes, improved the 
+DirectX windowed driver and Windows graphics subsystem, partially 
+revamped the Unicode API and added uszprintf(), added file_select_ex(), 
+the unified al_find*() interface, an Unicode example, a new filetest, 
+rewrote the fixdll script, revamped the Borland C++ build process, fixed 
+lots of bugs and did plenty of other things too. 
+\par \par Erik Sandberg (eriksandberg at geocities dot com).\par 
+Optimised the 8 bit draw_sprite() and draw_trans_sprite() functions and 
+helped with the Swedish message translation. 
+\par \par Erno Schwetter.\par 
+Fixed some bugs in the Linux console port and fixed a long-standing bug in 
+the polygon() routine. 
+\par \par Etienne Vouga.\par 
+Fixed a bug with the reset_controllers MIDI command. 
+\par \par Ettore Perazzoli (ettore at comm2000 dot it).\par 
+Optimised the linear -> mode-X blitting function. 
+\par \par Evert Glebbeek (eglebbk at dds dot nl).\par 
+Put set_gfx_mode on a diet, added a config entry for specifying the card 
+to be used for GFX_AUTODETECT_WINDOWED, added a '-fullscreen' switch to 
+the grabber, cleaned up the grabber/plugins code, added various commands 
+to the grabber, added the detection of SunOS/Solaris, added configure 
+options for x86 processor optimisations on Unix systems, added the support 
+for relative filenames and did plenty of other things too. 
+\par \par EvilTypeGuy (eviltypeguy at icculus dot org).\par 
+Cleaned up and fixed the RPM spec file for RedHat 9. 
+\par \par Fabian Nunez (faybs at iafrica dot com).\par 
+Added support for the CH Flightstick Pro and Logitech Wingman Extreme 
+joysticks, 3-button mice, and the extended keys on a Microsoft keyboard. 
+\par \par Fabrizio Gennari (faybs at iafrica dot com).\par 
+Contributed the DB9 and TurboGraFXoystick drivers. 
+\par \par Francis Devereux.\par 
+Made the OS X port compile on Mac OS X 10.6. 
+\par \par Francisco Pires (fmlvp at hotmail dot com).\par 
+Added an FPS counter and an option to disable vsync to the excamera 
+example. 
+\par \par Francois Charton (deef at pobox dot oleane dot com).\par 
+Wrote the Paradise graphics driver (now available as part of the 
+FreeBE/AF project), improved the VGA palette setting code and helped 
+with the TexInfo conversion of the docs. 
+\par \par Frodo Baggins (l41273 at alfa dot ist dot utl dot pt).\par 
+Made the Portuguese keyboard mapping. 
+\par \par Garret Thomson (g at sirsonic dot com).\par 
+Wrote the music used in the demo game. 
+\par \par George Foot (gfoot at users dot sourceforge dot net).\par 
+Did a great deal of work on the Linux console version, wrote the AWE32 
+driver, added the MIDI pause/seek functions, provided the basis of the 
+SoundFont reader used in the pat2dat utility, fixed the C fceil() 
+function, added the ffloor() function and added non-FM support to the 
+OSS MIDI driver. 
+\par \par Gorka Olaizola (olsago at jet dot es).\par 
+Added the Redhat RPM .spec file. 
+\par \par Grady Martin (shadygrady at budweiser dot com).\par 
+Fixed a bug in the handling of %n in the printf style text functions, added 
+a move command to the grabber and standardised some of the grabber dialog 
+boxes. 
+\par \par Greg Hackmann (hacker at ididitmyway dot com).\par 
+Contributed the Borland C++ Builder port. 
+\par \par Greg Lee (greg at ling dot lll dot hawaii dot edu).\par 
+Pointed out that Linux joystick driver should read all events. 
+\par \par Grzegorz Adam Hankiewicz (gradha at users dot sourceforge dot net).\par 
+Wrote several of the example programs, suggested the "compress" makefile 
+target, translated the docs and system error messages into Spanish, 
+suggested the idea of embedding the setup utility into other programs, 
+wrote some documentation and corrected the .texi generation to improve 
+texi2dvi output, improved the makedoc utility and contributed a new doc 
+format, added reload_config_texts() and did plenty of other things too. 
+\par \par Grzegorz Godlewski (email unknown).\par 
+Contributed a Polish localization patch, and added support for lower and 
+upper altgr tables. 
+\par \par Grzegorz Ludorowski (pajonk at ajax dot umcs dot lublin dot pl).\par 
+Wrote several of the example programs, and made the intro animation and 
+graphics for the demo game. 
+\par \par Guilherme Silveira (thedarkage at geocities dot com).\par 
+Modified the file selector to only list valid drive letters. 
+\par \par Gunter Ladwig (gladwig at iname dot com).\par 
+Wrote the OS/2 detection routines and added the three-button mouse 
+emulation. 
+\par \par Hans de Goede.
+Fixed a problem with dynamically generated stretcher code not being 
+properly marked as executable on Linux, fixed a busy wait in the X11 vsync 
+simulation, added a fullscreen driver for X11 which does not need XVidMode 
+extension, fixed a problem where switching to fullscreen mode under X11, 
+made digmid work with absolute pathes in patches.cfg, and fixed a problem 
+with the Alsa driver on big endian systems. 
+\par \par Harshavardhana Reddy N (nharsha at gmail dot com).\par 
+Added a Kannada greeting to exunicod. 
+\par \par Haruhiko Okumura (email unknown).\par 
+Wrote the original version of the LZSS compression code. 
+12-2-404 Green Heights, 580 Nagasawa, Yokosuka 239, JP. 
+\par \par Hein Zelle (hein at icce dot rug dot nl).\par 
+Revamped the cross-compilation section of docs/build/mingw32.txt, 
+clarified a requirement when cross-compiling from Linux, reworked the 
+paragraph on the location of shared libraries under Unix in the docs and 
+added a FAQ entry on the same subject. 
+\par \par Henrik Schmidt (hbs at ks dot informatik dot uni-kiel dot de).\par 
+Found a workaround for the switching problem under Windows, made gcc pass 
+'-h' instead of '-soname' to the linker and replaced '-L' by '-h' in shell 
+comparisons so as not to break on Solaris. 
+\par \par Henrik Stokseth (hensto at online dot no).\par 
+Contributed a native Mingw32 port which can also be built with a 
+cross-compiler and the Cygwin compiler, much improved OS detection, added 
+get_gfx_mode_list() and methods for querying the VGA, Mode-X, Xtended, 
+VESA, VBE/AF and DirectX drivers for a list of possible GFX modes, 
+rewrote the mode-selector to use get_gfx_mode_list(), reworked the build 
+system many times and did plenty of other things too. 
+\par \par Hrvoje Ban (spoofer255 at gmail dot com).\par 
+Pointed out a bug in the mode selector, fixed several double ;'s, fixed 
+ASSERT() in Windows, helped write a documentation section about common 
+pitfalls, and added the create_datafile_index function. 
+\par \par Igor Gnip (gnipi at mindnever dot org).\par 
+Removed the requirements for fileutils on DOS/Windows platforms and added 
+the detection of MSYS to the MingW32 port. 
+\par \par Isaac Cruz (icruzbal at teleline dot es).\par 
+Fixed a bug with accelerated drawing onto sub bitmaps of DirectDraw 
+surfaces, added the GFX_DIRECTX_WIN driver, fixed a Windows sub bitmap 
+locking bug, added Windows desktop_color_depth and yield_timeslice 
+routines, and made extensive modifications to other aspects of the 
+Windows code. 
+\par \par Ivan Baldo (lubaldo at adinet dot com dot uy).\par 
+Wrote the 15/16 bit dithering code and optimised the sprite rotation 
+routines. 
+\par \par Jaime Moreno (daviangel at hotmail dot com).\par 
+Helped track down a problem with dependency generation in MacOS X. 
+\par \par Jakub Wasilewski (krajzega at meditech dot pl).\par 
+Fixed a bug when loading greyscale TGA images. 
+\par \par James Arthur (jaa at arfa dot clara dot net).\par 
+Documented the Photoshop-style truecolor blender routines. 
+\par \par James Hyman (frooge at mindless dot com).\par 
+Added support for quoted strings in the get_config_argv() function and 
+the dithering code for paletted images. 
+\par \par James Lohr (email unknown).\par 
+Fixed a problem with mouse acceleration in fullscreen modes under Windows. 
+\par \par James Ponder (james at squish dot net).\par 
+Suggested to remove the DJGPP makefile from the Unix tar archive and 
+clarified a requirement when cross-compiling from Linux. 
+\par \par Jan Bruun Andersen (jba-dk at users dot sourceforge dot net).\par 
+Fixed a compilation problem with Cygwin. 
+\par \par Jan Hubicka (hubicka at horac dot ta dot jcu dot cz).\par 
+Vastly improved the speed of the create_rgb_table() function. 
+\par \par Jason Wilkins (fenix at io dot com).\par 
+Wrote the quaternion math routines and contributed the BeOS port. 
+\par \par Javier Gonzalez (xaviergonz at hotmail dot com).\par 
+Corrected mouse movement speed, made allegro_message() use title from 
+set_window_title(), added close button hook support and improved 
+switching in Windows, fixed bad clearing of subbitmaps, made bug 
+reports and suggestions for improvement, contributed bidirectional 
+looping support, backward playing support and bugfixes for the 
+DirectSound driver and did plenty of other things too. 
+\par \par Jeff Mitchell (email unknown).\par 
+Fixed the location of grabber.txt in the spec file. 
+\par \par Jeremiah Blanchard (squirminworm at yahoo dot com).\par 
+Contributed modifications in order for Allegro to build on Darwin/MacOS X 
+and updated the build instructions for this new port afterwards. 
+\par \par Jim Flynn (jflynn at pacbell dot net).\par 
+Removed floating point calculations from the AWE32 MIDI driver. 
+\par \par Jim Grainger (Grainger_Jim/world_europe_samuro_WYN-CTV at samsung dot co dot kr).\par 
+Spotted a broken link in the docs and updated it. 
+\par \par Jiri Gabriel (email unknown).\par 
+fixed loading of multiple ranges in a single bitmap with txt fonts and helped 
+fix an off-by-one mistake for the last glyph in extract_font_range. 
+\par \par Joaquin Hierro Diaz (Joaquin dot Hierro dot Diaz at fresno dot csic dot es).\par 
+Made the mapping table for Spanish keyboards. 
+\par \par Joerg Rueppel (sharky-x at gmx dot net).\par 
+Added more flexible wildcard matching for object names in dat.exe and 
+the find_datafile_object() function. 
+\par \par Johan Peitz (d98peitz at dtek dot chalmers dot se).\par 
+Fixed and enhanced the Win32 joystick driver, and contributed the 'Alex 
+the Allegator' icon. 
+\par \par Johan Venter (leonjventer at bigpond dot com).\par 
+Fixed some problems with the RSXNT and Mingw32 makefiles. 
+\par \par John Holden (johnh at psych dot usyd dot edu dot au).\par 
+Fixed a bug in load_wav(). 
+\par \par John Utz (Johnut01 at noa dot nintendo dot com).\par 
+Corrected a wrong assumption about the VRAM layout in the Linux 
+framebuffer console driver. 
+\par \par Jon Rafkind (workmin at ccs dot neu dot edu).\par 
+Added more ASSERTs to the code, implemented the Cohen-Sutherland clipping 
+algorithm for the line() function and supplied an m4 macro for allegro. 
+Also fixed a problem with allegro-config. 
+\par \par Jonas Petersen (joXonoX at berlin dot snafu dot de).\par 
+Added the save_bmp() function and support for the OS/2 BMP format. 
+\par \par Jonathan Tarbox (jonattar at rocketmail dot com).\par 
+Wrote the mode-X setup code, the FLI/FLC player and contributed parts of 
+the joystick handler. 
+\par \par Jorrit Rouwe (j dot rouwe at cpedu dot rug dot nl).\par 
+Provided a new and much cooler set of FM instrument definitions for the 
+Adlib MIDI driver. 
+\par \par Jose Antonio Luque (skylord at LatinMail dot com).\par 
+Improved the Windows joystick driver, and optimised the 16-bit blit() and 
+masked_blit() functions. 
+\par \par Joshua Heyer (joshua_heyer at yahoo dot com).\par 
+Wrote the original version of the OSS sound driver. 
+\par \par J. P. Morris (email unknown).\par 
+Fixed a bug rest_callback under unix. 
+\par \par Julien Cugnière (jcugniere at free dot fr).\par 
+Improved the support for non-blocking menus, fixed a bug related to the 
+retrieval of the inital volume when no primary buffer was present under 
+Windows, fixed the crash on exit with the aRts sound driver, added an 
+X11 message box for allegro_message under X11 and fixed a crash in the GUI 
+when a dialog was opened while a menu was still open. 
+\par \par Kalle Toivonen (allegro at korpiq dot iki dot fi).\par 
+Fixed a bug in _parallelogram_map(). 
+\par \par Keith Gerdes (kwg at softhome dot net).\par 
+Fixed the DirectDraw overlay mode driver. 
+\par \par Kerry High (khigh01 at umr dot edu).\par 
+Contributed the SNES joypad driver. 
+\par \par Kester Maddock (dmaddock at xtra dot co dot nz).\par 
+Wrote the Wingman Warrior joystick driver. 
+\par \par Knut Pape (Knut_Pape at t-online dot de).\par 
+Improved the Mingw32 readme file. 
+\par \par Kronoman X (kronoman_x at hotmail dot com).\par 
+Added a FAQ entry about the conflict between Allegro headers and the C++ 
+'using' directive. 
+\par \par Krzysztof Krzyzaniak (eloy at arrakis dot cs dot put dot poznan dot pl).\par 
+Wrote the load_voc() function. 
+\par \par Laurence Withers (lwithers at users dot sf dot net).\par 
+Added destroy hook to font structure, worked on const-correctness 
+throughout the library, implemented the new FONT structure, made 
+some modules avoid linking dependencies, contributed the dat2c 
+utility, added two fixed point ratios for converting to and from 
+radians, added a '-windowed' switch to the grabber, added a new text 
+API and did plenty of other things too. 
+\par \par Lee Killough (email unknown).\par 
+Added the low-level hook routine to the keyboard handler and fixed a 
+couple of bugs. 
+\par \par Lennart Rolland (chimeni at hotmail dot com).\par 
+Contributed the Norwegian message translation. 
+\par \par Lennart Steinke (lst at steinke dot net).\par 
+Added the exconfig example, contributed keyboard layout detection code 
+for Windows and suggested the true colour font rendering. 
+\par \par Lisa Parratt (lisa at thecommune dot org dot uk).\par 
+Contributed the SGI Audio Library sound driver, spotted a BSDism that 
+IRIX doesn't like at all, added IRIX detection and improved the 
+performances of the SGI audio driver 
+\par \par Lorenzo Petrone (looris at gmail dot com).\par 
+Contributed the gfxinfo utility, added two FAQ entries, added a 
+xwin_set_window_name() function to the X11 port, added support for 
+switch callbacks under X11 and refactored the display switching code. 
+\par \par Lucas Vignoli Reis (lucasvr at bestway dot com dot br).\par 
+Added the Portuguese (Brazil) message translation and keyboard mapping. 
+\par \par Magnus Henoch (mange at freemail dot hu).\par 
+Made the gfx mode selector keep the current selection as much as possible 
+and fixed a problem when compiling without 8bpp support. 
+\par \par Maiolino Carmelo (cmaiolino at ctonline dot it).\par 
+Added the Italian keyboard mapping table. 
+\par \par Manni Heumann (manfred dot heumann at uni-bielefeld dot de).\par 
+Fixed some problems with the German keyboard mapping table. 
+\par \par Marcel de Kogel (m dot dekogel at student dot utwente dot nl).\par 
+Not content with fixing my broken MPU-401 driver, Marcel went on to 
+provide a set of vastly improved drum sounds for the OPL driver, to help 
+me sort out some problems with reentrant interrupts, to supply the half 
+of the joystick code that didn't come from Jonathan and to locate a 
+stupid mistake in my VESA linear framebuffer code. 
+\par \par Marcel Smit (marcel dot athlon at hccnet dot nl).\par 
+Corrected a bug that caused errors when drawing persp. correct polygons 
+facing the screen, corrected an error in the packfile format write-up and 
+made the show_video_bitmap() method of the Windows windowed driver wait 
+for a vsync. 
+\par \par Márcio Fialho (maaf1980 at yahoo dot com dot br).\par 
+Fixed several issues with the DJGPP port and the VBE/AF driver and fixed 
+some bugs related to author credits. 
+\par \par Marco Campinoti (marco at etruscan dot li dot it).\par 
+Added 15 and 24 bit support to the native Tseng ET4000 driver (now 
+available as part of the FreeBE/AF project). 
+\par \par Marco Marmulla (Viper005 at usa dot net).\par 
+Added 16 bit support to the load_voc() routine. 
+\par \par Marian Dvorsky (marian at step dot sk).\par 
+Wrote the Windows GDI interface routines. 
+\par \par Marius Fodor (iceman at teleport dot com).\par 
+Added support for the Sidewinder and Gravis GamePad Pro. 
+\par \par Marek Habersack (grendel at ananke dot amu dot edu dot pl).\par 
+Did the original Linux console port (brave man: this was the first ever 
+work done on porting Allegro away from DOS), which is the basis of the 
+code we are still using today and added support for the more recent 
+Trident chipsets (now available as part of the FreeBE/AF project). 
+\par \par Mark Keller.\par 
+Reported two minor mistakes in the manual. 
+\par \par Mark Wodrich (mwodric at eleceng dot uct dot ac dot za).\par 
+The brain behind sub-bitmaps, flicker-free mouse pointers, and the 
+ability to import GRX .FNT files into the grabber. 
+\par \par Markus F.X.J. Oberhumer (markus dot oberhumer at jk dot uni-linz dot ac dot at).\par 
+Fixed the Video-7 scrolling function (now available as part of the 
+FreeBE/AF project), optimised the color mapping routines, and made many 
+useful suggestions like the addition of a vid_phys_base field to the 
+graphics driver structure. 
+\par \par Martijn Van Lersel (amarillion at yahoo dot com).\par 
+Fixed an overflow in create_light_table(). 
+\par \par Martijn Versteegh (m dot versteegh at hccnet dot nl).\par 
+Added the config hook extension mechanism. 
+\par \par Mathieu Lafon (mlafon at ifhamy dot insa-lyon dot fr).\par 
+Added the French keyboard mapping, support for the Pause/PrtScr keys and 
+changed the key[] table to a normal/extended bitfield. 
+\par \par Matt Witherspoon (spoon at vt dot edu).\par 
+Fixed a bug in the scroll() method of the Linux SVGAlib driver. 
+\par \par Matthew Bowie (catcat at nmt dot edu).\par 
+Added support for 4-button joysticks. 
+\par \par Matthew Leverton (matthew at allegro dot cc).\par 
+Fixed a bug with mouse mickeys in windowed mode under Windows, fixed a 
+problem with al_find*() and NTFS partitions under Windows, added missing 
+header files to be installed by the Windows binary distribution, made the 
+DOS/Windows makefiles use 'copy /B' instead of 'copy', added the detection 
+of left-hand mouse configuration under Windows, fixed a bug with 
+pack_fgets(), made an online diff generator and did lots of other things too. 
+\par \par Matthew Smith.\par 
+Fix a bug in C locking code in GDI. 
+\par \par Maxime Carey (werfu at users dot sourceforge dot net).\par 
+Contributed the Canada (French) keyboard mapping file. 
+\par \par Michael Bevin (michael dot bevin at stonebow dot otago dot ac dot nz).\par 
+Optimised the create_trans_table() function. 
+\par \par Michael Bukin (M dot A dot Bukin at inp dot nsk dot su).\par 
+Ported the whole thing to Unix/X, and contributed a _lot_ of patches to 
+improve the portability, robustness, and performance of pretty much the 
+entire library. 
+\par \par Michael Faerber.\par 
+Pointed out a mistake in the documentation for text_height(). 
+\par \par Michael Jensen.\par 
+Fixed a mistake in the documentation for is_compatible_font. 
+\par \par Michael Rickmann (mrickma at gwdg dot de).\par 
+Ported the Windows code to Mingw32. 
+\par \par Michael Tanczos (webmaster at logic-gate dot com).\par 
+Fixed some bugs in the FLIC player. 
+\par \par Michal Mertl (mime at eunet dot cz).\par 
+Wrote all the 24 bit graphics code, the optimised palette generation 
+function and a fair amount of the other truecolor stuff too (bitmap 
+scaling, image loading, etc). 
+\par \par Michal Molhanec (molhanec at seznam dot cz).\par 
+Simplified the build instructions for Dev-C++, replaced all occurences 
+of MingW32 by MinGW in the docs, added an faq section about the giftware 
+license, fixed problems with long filenames when building for MSVC, 
+corrected a problem with the Watcom port, added MSVC7 options to the 
+makefile, fixed a linker problem with the MSVC port, fixed some const 
+warnings in the grabber code and did plenty of other things too. 
+\par \par Michail Pishchagin (mblsha at users dot sourceforge dot net).\par 
+Contributed the ustrnicmp() function. 
+\par \par Milan Mimica (milan dot mimica1 at pu dot htnet dot hr).\par 
+Fixed bugs in the keyconf utility, the alsa 9 volume settings and 
+extract_font_range(), helped fix an off-by-one mistake for the last glyph 
+in extract_font_range, fixed a bug where a font would be converted to 8 
+bit, a bug with is_color_font, made the Linux console driver more robust, 
+fixed some spin loops in the test program, and added the get_volume and 
+get_hardware_volume functions, and did plenty of other things too. 
+\par \par Miran Amon (miran dot amon at gmail dot com).\par 
+Fixed an undocumented arbitrary limit in get_config_argv() 
+\par \par Nathan Albury, aka Rubicant (gt4558a at prism dot gatech dot edu).\par 
+Improved the fire routine in examples/exflame.c (my original version 
+didn't really look very much like flames :-) and gave me some extremely 
+useful ideas about how to implement translucency. 
+\par \par Nathan Smith (white_door at dread dot nl).\par 
+Implemented the recursive handling of directories for the dat utility. 
+\par \par Neil Townsend (neil at robots dot ox dot ac dot uk).\par 
+Improved the accuracy of the timer routines and added the callback 
+parameters. 
+\par \par Neil Roy (neilroy at cogeco dot ca).\par 
+Suggested many improvements to the documentation. 
+\par \par Neil Walker.\par 
+Implemented a hardware accelerated stretch_blit() for the Windows DX port, 
+and fixed a bug with draw_sprite and sub-bitmaps. 
+\par \par Nicholas Davies (master_goodbytes at hotmail dot com).\par 
+Made the fix class not trigger warnings with gcc -Weffc++. 
+\par \par Nick Kochakian (nickk at worldnet dot att dot net).\par 
+Wrote the DirectSound input driver. 
+\par \par Ole Laursen (98zOLaw at aalborghus dot dk).\par 
+Contributed the Danish keyboard mapping table and system message 
+translation, and made the Unicode utolower() and utoupper() functions 
+understand the entire 16 bit character set. 
+\par \par Olivier Blin (oblin at mandriva dot com).\par 
+Fixed compilation problems for the ModeX driver. 
+\par \par Olly Betts (olly at muscat dot co dot uk).\par 
+Modified the djgpp makefile to support cross-compiling on a Linux machine. 
+\par \par Omar Cornut (cornut at noos dot fr).\par 
+Spotted an asm locking bug under Windows, bumped the maximum number of 
+buttons per joystick to 32, fixed the Windows joystick driver to handle a 
+weird peculiarity of the DirectInput API and improved the handling of 
+KEY_COLON2 on Japanese keyboards. 
+\par \par Oscar Giner (O_giner at hotmail dot com).\par 
+Added the Catalan translation, corrected the Spanish translation, fixed a 
+bug with binary data exporting in the grabber and fixed a conflict between 
+the magic main and the MFC. 
+\par \par Owen Embury (owen at gememail dot demon dot co dot uk).\par 
+Wrote part of the translucency/lighting code. 
+\par \par Owen Rudge (alleg at orudge dot freeuk dot com).\par 
+Contributed a DLL version resource script and the mkdata.bat script. 
+\par \par Ove Kaaven (ovek at arcticnet dot no).\par 
+Fixed a bug in the ATI mach64 driver (now available as part of the 
+FreeBE/AF project), added native truecolor and linear framebuffer support 
+to the ATI driver, contributed the Norwegian keyboard mapping, and added 
+MIDI and sample input features to the MPU and SB drivers respectively. 
+\par \par Paavo Ahola (email unknown).\par 
+Helped fix a problem with BCC and the C implementations of fixmul. 
+\par \par Patrick Hogan (patter at iname dot com).\par 
+Wrote the draw_gouraud_sprite() function, and made Windows audiostreams 
+work properly. 
+\par \par Paul Bartrum (bartrum at xtra dot co dot nz).\par 
+Contributed the ellipse drawing functions. 
+\par \par Paul Eipper.\par 
+Reported a bug where libdir from autotools was not used for the modules path. 
+\par \par Paul Furber (paul at sprintlink dot co dot za).\par 
+Provided the floating point apply_matrix_f() function. 
+\par \par Paul Hampson (Paul dot Hampson at Pobox dot Com).\par 
+Improved and fixed some problems in the SNES gamepad driver. 
+\par \par Paul Pinault (diskaleg at infonie dot fr).\par 
+Translated the system error messages into French. 
+\par \par Pavlos Touboulidis (gtoub at otenet dot gr).\par 
+Made file_select() able to include or exclude files based on their 
+attributes. 
+\par \par Pedro Cardoso (pcardoso at viriato dot ipv dot pt).\par 
+Contributed the tweaked 80x80 VGA mode. 
+\par \par Peter Cech (7cech at nw dot fmph dot uniba dot sk).\par 
+Added grabber support for the 8x8 BIOS font format, support for 
+hot-swapping between a custom keyboard layout and the standard US 
+mapping, optimised the alpha sprite blending routines and added non-ASCII 
+space recognition to uisspace(). 
+\par \par Peter De Wachter.\par 
+Made the ALSA driver work for hardware which does not support unsigned 
+samples. 
+\par \par Peter Hull (peterhull90 at users dot sourceforge dot net).\par 
+Made the file selector work with directories that have more than 2048 
+files, solved some compiling issues on MacOS X, fixed a bug in rest() 
+that caused it to wait too long on that platform, fixed several problems 
+with the hardware mouse cursor, fixed a deadlock in the software mouse 
+updating code, fixed compilation problems under MacOS X tiger, added a 
+MacOS X helpfile and did plenty of other things too. 
+\par \par Peter Johansson (email unknown).\par 
+Reported a problem with system cursors not working in Windows. 
+\par \par Peter Monks (pmonks at iname dot com).\par 
+Wrote the Video-7 graphics driver (now available as part of the FreeBE/AF 
+project) and showed me how to set up the unchained 640x400 mode. 
+\par \par Peter Palotas (blizzar at hem1 dot passagen dot se).\par 
+Added the keyboard callback routine. 
+\par \par Peter Pavlovic (Peter dot Pavlovic at st dot fmph dot uniba dot sk).\par 
+Added the Slovak keyboard mapping and message translation, stopped the 
+DOS file selector from listing virtual drives, did the same for the 
+Windows file selector, improved the support for accented character maps in 
+the keyboard driver and made aesthetic modifications to the GUI menu 
+system. 
+\par \par Peter Puck (zaqhaq at netscape dot net).\par 
+Helped with the Mingw32 native build. 
+\par \par Peter Wang (tjaden at users dot sourceforge dot net).\par 
+Added the mouse_z wheel input support to the Linux code, fixed problems 
+with the ESD sound driver, wrote the ALSA sound driver, wrote the BeOS 
+sound driver, added OSS MIDI and sample input support, added banked mode 
+support to the SVGAlib driver, wrote the X DGA mode switching code, 
+improved the Linux joystick driver, X11 fullscreen, DGA2 and DGA driver, 
+added pthread timers under Linux/Unix and did loads of other things too. 
+\par \par Phil Frisbie, Jr. (pfrisbie at geocities dot com).\par 
+Wrote the CPU type detection code. 
+\par \par Phil Krylov.\par 
+Fixed a bug in load_bios_font(). 
+\par \par Phil Shenk (email unknown).\par 
+Improved the MSVC build instructions. 
+\par \par Philipp Thomas (pthomas at suse dot de).\par 
+Fixed all comparisons between signed and unsigned types, fixed compilation 
+on x86-64, fixed all function prototypes, converted the configure 
+machinery to autoconf 2.53 or later and added multi-arch support, DESTDIR 
+support and the German translation to the RPM spec file. 
+\par \par Przemek Podsiadly (ppodsiad at elka dot pw dot edu dot pl).\par 
+Added hicolor versions of the 3d polygon code. 
+\par \par Revin Guillen (revin at phylo dot com).\par 
+Added the position_dialog() function. 
+\par \par Richard Davies (richard at debaser dot force9 dot co dot uk).\par 
+Added support for PSX and N64 joypads. 
+\par \par Richard Mitton (100740 dot 1271 at compuserve dot com).\par 
+Added support for 6-button joysticks, and wrote the 12-bit color example 
+program (ex12bit.c). 
+\par \par Richard Reeve (r dot e dot reeve at stir dot ac dot uk).\par 
+Fixed a silly mistake with gcc 3.0.x detection. 
+\par \par Rikard Peterson.\par 
+Fixed a small problem with the Mac OS X joystick driver. 
+\par \par Robert J. Ragno (rjr at mit dot edu).\par 
+Wrote the Gravis GrIP driver, made some improvements to the Wingman, PSX 
+and throttle input code. 
+\par \par Robert J. Ohannessian (voidstar at ifrance dot com).\par 
+Added MMX optimisation for the 8 and 16-bit clear() functions, fixed bad 
+clearing of subbitmaps, added SSE detection and optimised some masked 
+blits with SSE instructions, added some routines to the unified color 
+convertor and made some of them more robust, fixed the docs for 
+pivot_scaled_sprite_v_flip(), revamped the retrieval mechanism of CPU 
+capabilities, separated the CSS file and did plenty of other things too. 
+\par \par Roberto Alfonso (rpgrca at labint dot frba dot utn dot edu dot ar).\par 
+Fixed a couple of memory problems in the dat2c utility, added an 
+srand() call in the demo game, made the MSVC port call `link /lib' 
+rather than `lib', fixed several warnings with GCC 4 under DJGPP and 
+fixed a grabber crash when importing a font range in an existing font. 
+\par \par Robin Burrows (rburrows at bigfoot dot com).\par 
+Provided a new page flipping code for the DirectDraw subsytem, added a 
+Windows sound driver using the Allegro mixer and another using waveOut, 
+fixed two glitches in the DirectDraw code. 
+\par \par Romano Signorelli (romanos at bigfoot dot com).\par 
+Added an arc plotting routine. 
+\par \par Ron Novy\par 
+Made several improvements to the test program. 
+\par \par Ronaldo Hideki Yamada (r dot yamada at uol dot com dot br).\par 
+Contributed the MacOS 9 port of Allegro. 
+\par \par Ryan Patterson.\par 
+Made various documentation fixes and fixed a crash in free_config_entries. 
+\par \par S.Sakamaki (emt at geocities dot co dot jp).\par 
+Added the VESA 3.0 refresh rate control code. 
+\par \par S.Suzuki (s-suz at sunfield dot ne dot jp).\par 
+Wrote the IF-SEGA /PCI, /PCI2, and /ISA joystick interface drivers. 
+\par \par Salvador Eduardo Tropea (salvador at inti dot edu dot ar).\par 
+Improved the keyboard routines (better handling of extended scancodes, 
+keyboard LED support, capslock and numlock, and alt+numpad input), 
+contributed the 320x100 VGA graphics mode, added support for proper 16 
+bit sample mixing, fixed compilation on gcc 3.x and made numerous other 
+useful suggestions, contributions and bugfixes. 
+\par \par Sam Hocevar (sam at zoy dot org).\par 
+Fixed a Bashism in fix.sh that makes Solaris' sh choke, a race 
+condition in the mixer under Unix w/ threads, Windows, BeOS and MacOS X, 
+a crash in makedoc, made it possible to put functions from .s sources 
+in a shared library under Unix and removed deprecated use of several 
+functions. 
+\par \par Santeri Saarimaa (gridle at mbnet dot fi).\par 
+Made the Finnish keyboard mapping. 
+\par \par Sask Allegro (sask_allegro at iespana dot es).\par 
+Added support for more than two joysticks in the Windows port. 
+\par \par Scott Harrison (scotth at calderauk dot com).\par 
+Added the OpenDOS detection code. 
+\par \par Sean Gugler (sean at epal dot com).\par 
+Added the set_leds() function. 
+\par \par Seunghwan Ji (email unknown).\par 
+Made makedoc output correct html and rtf files for Korean. 
+\par \par Serge Semashko (serge at lxnt dot info).\par 
+Fixed a bug with the letter P in the Russian keyboard configuration 
+file, added Enter as a fire key to the demo game, fixed some 
+problems with Allegro working on Nokia 770, and fixed a crash in 
+_linear_draw_trans_rgba_rle_sprite24. 
+\par \par Seymour Shlien (seymour at dgbt dot doc dot ca).\par 
+Contributed the Windows BMP file reader, bezier spline drawer, and 
+justified text plotting function. 
+\par \par Shawn Hargreaves (shawn at talula dot demon dot co dot uk).\par 
+Progenitor. Wrote everything that wasn't written by somebody else. 
+\par \par Shawn Walker (binarycrusader at gmail dot com).\par 
+Several fixes to the .spec file, made get_executable_name use getexecname() 
+under Solaris, fixed a bug in the keyboard driver that caused crashes on 
+the same system, worked around errors with some versions of GNU AS and fixed 
+errors in the configure script when not using GCC 
+\par \par StApostol (stapostol at gmail dot com).\par 
+Fixed a bug in the exflame example and updated the FAQ to use rest(0) instead 
+of yield_timeslice(). 
+\par \par Stefan Eilert (seilert at rz dot Uni-Osnabrueck dot DE).\par 
+Added support for a second joystick. 
+\par \par Stefan Schimanski (1Stein at gmx dot de).\par 
+Wrote the original Windows version pretty much single-handedly. 
+\par \par Stefan T. Boettner (virtual dot man at t-online dot de).\par 
+Wrote the Linux SVGAlib driver. 
+\par \par Stepan Roh (src at srnet dot cz).\par 
+Added a Czech keyboard mapping and system message translation, the Latin 
+Extended-A characters in the default font, the codepage support in the 
+textconv utility, fixed some problems with the ESD sound driver, helped 
+make Allegro build better on some Unix platforms, fixed const related 
+problems in C versions of routines and added support for a automake-style 
+DESTDIR variable in the Unix makefile. 
+\par \par Stephan Brauss (sbrauss at optronic dot ch).\par 
+Made a few fixes to let the Linux port compile again on Linux 2.2.x, 
+corrected a few nits in the Swiss keyboard configuration file and added 
+new keysyms to the X11-to-BIOS conversion table in order to catch missing 
+keycodes for the keypad when NumLock is on. 
+\par \par Stephen Kittelson (stickman2000 at juno dot com).\par 
+Made bugfixes and tweaks to the keyboard system. 
+\par \par Stijn Wolters.\par 
+Clarified the documentation of init_dialog. 
+\par \par Sveinung Kvilhaugsvik(email unknown).\par 
+Pointed out that Allegro should respect DESTDIR under MacOS X. 
+\par \par Sven Sandberg (svens at it dot uu dot se).\par 
+Fixed a problem with save_bitmap() rounding the image widths, optimised 
+the create_light_table() function, optimised the fixed point trigonometric 
+routines, provided the Swedish message translations, improved the file 
+selector sorting algorithm, optimised the spline routines, added 
+ustrrchr(), improved the usprintf() handling of floats, changed the 
+Z-buffer API, and did plenty of other things too. 
+\par \par TBD/FeR (tbd at usa dot net).\par 
+Added the 320x600 and 360x600 resolutions to the mode-X driver. 
+\par \par Teijo Hakala (teijo dot hakala at imnetti dot fi).\par 
+Added wheel support to the Windows mouse driver. 
+\par \par Tero Parvinen (Tero dot Parvinen at hut dot fi).\par 
+Designed most of the new sound API. 
+\par \par Theuzifan Sumachingun (uzi at simauria dot upv dot es).\par 
+Improved the cpu detection for Cyrix chips and made the file selector 
+only list valid drive letters. 
+\par \par Thomas Fjellstrom (tfjellstrom at home dot com).\par 
+Wrote the ALSA 0.5.x MIDI driver and added support for ALSA 0.9.x. 
+\par \par Thomas Harte (email unknown).\par 
+Helped fix a bug in show_video_bitmap() on MacOS X, helped optimise 
+fixmul(), helped find many bugs in the MacOS X port, like better support 
+for user-supplied Nibs, implemented a hardware accelerated stretch_blit 
+under DirectX, and fixed a bug with draw_sprite and sub-bitmaps. 
+\par \par Thomas Klausner (wiz at danbala dot ifoer dot tuwien dot ac dot at).\par 
+Added NetBSD detection and fixed a problem with the allegro.m4 macro and 
+automake 1.8+. 
+\par \par Thomas Wolf (two at chello dot at).\par 
+Corrected some errors in the German keyboard mapping and added the 
+German translation of the system messages. 
+\par \par Tim Bird (tbird at caldera dot com).\par 
+Worked on the Linux console port. 
+\par \par Tim Gunn (timgunn at eastwind dot com dot au).\par 
+Wrote the TGA reading/writing routines. 
+\par \par Timothy Terriberry (sundance at sprintmail dot com).\par 
+Fixed several bugs in the RGB <-> HSV conversion routines. 
+\par \par Tobi Vollebregt (email unknown).\par 
+Spotted a bug in ustrerror(), which was not returning a pointer to 
+a static buffer, reported a problem with shutdown_dialog() when a 
+menu was open, helped port the Windows keyboard driver to Windows 98 
+and fixed a bug with hardware cursor detection in X11. 
+\par \par Tobias Dammers.\par 
+Fixed a problem with the DirectSound input driver. 
+\par \par Tom Breton (tob at world dot std dot com).\par 
+Added the functionality selection #ifndefs to allegro.h. 
+\par \par Tom Novelli (tnovelli at cyber3 dot servtech dot com).\par 
+Wrote the original version of the digital MIDI driver. 
+\par \par Tom St Denis (tomstdenis at yahoo dot com).\par 
+Fixed clipping of transparent objects. 
+\par \par Tomohiko Sugiura (tmsugi at d4 dot dion dot ne dot jp).\par 
+Added the KEY_ABNT_C1, KEY_YEN, KEY_KANA, KEY_CONVERT, KEY_NOCONVERT 
+and other keys to the input handler, organised getting the IF-SEGA 
+joystick drivers by S.Suzuki merged into my codebase and added a more 
+aggressive Sidewinder joystick driver. 
+\par \par Tore Halse (gnolam at gmail dot com).\par 
+Made Allegro windows always popup centred in Windows and made fixes to the 
+documentation. 
+\par \par torhu.\par 
+Fixed an out-of-bounds error in akaitest. 
+\par \par Trent Gamblin.\par 
+Implemented set_mouse_speed under X11, fixed the C version of stretch_blit 
+and made the fullscreen DirectX driver save and restore the palette on 
+switching away. 
+\par \par V Karthik Kumar (karthikkumar at gmail dot com).\par 
+Added a Tamil language greeting to exunicode, added switches to use 
+the Intel compiler in Windows and added a password option to the Windows 
+screensaver example. Also fixed a problem with allegro-config. 
+\par \par Victor Williams Stafusa da Silva (vwss1984 at yahoo dot com dot br).\par 
+Changed a few occurences of "256" to PAL_SIZE and made OS type detection 
+handle Windows 2003 and Windows Vista. 
+\par \par Ville Skyttä (scop at users dot sourceforge dot net).\par 
+Fixed a problem with make install libdir= and modules on Unix systems. 
+\par \par Vincent Penquerc'h (lyrian at kezako dot net).\par 
+Added the D_DIRTY flag and mouse button press/release events to the GUI 
+system, optimised the 256 to truecolor blitting code to avoid repeated 
+conversions of the palette table, added scare_mouse_area(), added the 
+yield_timeslice() function, added the update selection function to the 
+grabber, added the XCRP and YCRP properties to datafiles in general, 
+implemented the big header split and did plenty of other things too. 
+\par \par Vitaliy Chetverikov (email unknown).\par 
+Fixed a bug in the GUI where the return value of MSG_IDLE was ignored. 
+\par \par VolkerOth (VolkerOth at aol dot com).\par 
+Integrated the concepts of scrolling and edit_proc objects. 
+\par \par \par \par \par {\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v Thanks!}Thanks!\par }
+First, a big thank you to all the people who help me test and debug this 
+code. It sometimes gets frustrating to receive hundreds of messages 
+saying "it doesn't work!", but they are useful all the same... 
+\par \par Andre Baresel (baresel at informatik dot hu-berlin dot de), 
+and Craig Jackson (Craig dot Jackson at launchpad dot unc dot edu), 
+provided a tremendous amount of information about SB hardware. 
+\par \par Benji York (Benji at cookeville dot com).\par 
+Provided hardware information for the Gravis GamePad Pro. 
+\par \par Charles Mac Donald (cgfm2 at hooked dot net).\par 
+Showed me how to set some cool tweaked VGA and mode-X resolutions. 
+\par \par Charles Sandmann (sandmann at clio dot rice dot edu), 
+DJ Delorie (dj at delorie dot com), 
+Eli Zaretskii (eliz at is dot elta dot co dot il), 
+and everyone else who has contributed to djgpp. I love it. 
+\par \par C. Schwerdtfeger (schwerdt at physics dot ubc dot ca), 
+for his help (and enourmous patience!) in getting the SB Pro-I MIDI 
+driver to work. 
+\par \par Finn Thoegersen, Nordbanevej 3 C, DK-7800 Skive, Denmark.\par 
+Most of my SVGA hardware information came from his VGADOC package. 
+\par \par Eric Jorgensen (smeagol at rt66 dot com).\par 
+Varmint's Audio Tools (VAT) gave me many useful ideas about how to play 
+MIDI files. 
+\par \par Jamie O'Connell (JamieOConnell at msn dot com).\par 
+Several of the new Adlib drum patches, and the specifications for the 
+.IBK file format, came from his SBTimbre package. 
+\par \par Jean-Paul Mikkers (mikmak at stack dot urc dot tue dot nl).\par 
+MikMod was the source of a lot of information about programming the SB, 
+and also gave me the idea of dynamically reprogramming the PIT to get a 
+really high resolution timer. 
+\par \par Joel H. Hunter (jhunter at kendaco dot telebyte dot com).\par 
+His SB library for djgpp is excellent, and helped me a lot. 
+\par \par John Pollard (74723 dot 1626 at compuserve dot com).\par 
+The FM instrument definitions are based on his MID-KIT library. 
+\par \par Kendall Bennett and all the other cool people at SciTech Software.\par 
+These guys gave the world UniVBE, the VBE/AF API, and a lot of free 
+information and example code. Plus they very kindly sent me a copy of the 
+VBE/AF spec when I wanted one. 
+\par \par Kris Heidenstrom (kheidens at actrix dot gen dot nz).\par 
+His PC timing FAQ was a big help. 
+\par \par Mark Feldman.\par 
+It goes without saying that the PCGPE was an invaluable resource. 
+\par \par Michael Abrash.\par 
+You just gotta love that man... 
+\par \par Paul Fenwick (bg914 at freenet dot carleton dot ca).\par 
+Various bits of the mode-X code (notably the split screen stuff) came 
+from his XLIBDJ library. 
+\par \par powerjaw (powerjaw at dnai dot com).\par 
+Sent me a Sidewinder gamepad so I could fix some problems with the driver 
+for it. What a cool thing to do... 
+\par \par Robert Grubbs (rwgrubbs at vt dot edu).\par 
+Provided hardware information for the Sidewinder joypad. 
+\par \par Robert Schmidt (robert at stud dot unit dot no).\par 
+The register values for the 400x* mode-X resolutions came from his TWEAK 
+program. 
+\par \par Sourceforge.net (http://sourceforge.net/).\par 
+The Allegro community has been using their services (web, mailing lists, 
+CVS, Subversion, etc) since 3.9.x WIP versions. 
+\par \par Tom Grandgent (tgrand at canvaslink dot com).\par 
+Organised and hosted the original Allegro mailing lists for many years. 
+Hurrah! 
+\par \par Vladimir Arnost (xarnos00 at dcse dot fee dot vutbr dot cz).\par 
+Provided hardware specs for the OPL3 chip. 
+\par \par Frank Zappa, Mike Keneally, Pink Floyd, the Doors, Tori Amos, and all the 
+other great musicians who provide me with things to listen to while I am 
+programming. 
+\par \par My parents, John and Nancy.\par 
+I would never have made it through all those late night coding sessions 
+without the cafetiere they gave me last Christmas :-) 
+\par \par \par \par By Shawn Hargreaves, Allegro creator. 
+\par \par \par \par }

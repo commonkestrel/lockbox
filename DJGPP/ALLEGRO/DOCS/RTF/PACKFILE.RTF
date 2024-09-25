@@ -1,0 +1,76 @@
+{\rtf\ansi\deff0\widowctrl \f0\fs20 
+{\colortbl;\red0\green0\blue0;\red255\green0\blue0;\red0\green255\blue0;\red0\green0\blue255;}
+{\fonttbl{\f0\froman\fcharset0\fprq2 Times New Roman;}
+{\f1\fmodern\fcharset0\fprq1 Courier New;}
+{\f2\froman\fcharset2\fprq2 Symbol;}}
+{\stylesheet {\widctlpar \f0\fs20 \snext0 Normal;}
+{\s1\widctlpar \f1\fs18 \sbasedon0\snext1 Quotation;}
+{\s2\widctlpar \f0\fs48\sa600\pagebb\keepn\ul \sbasedon0\snext2 Heading 1;}
+{\s3\widctlpar \f0\fs24\sb200\keepn\sa200\b \sbasedon0\snext3 Heading 2;}
+{\s4\widctlpar \f0\fs20\tqc\tx4153\tqr\tx8306 \sbasedon0\snext4 Header;}
+{\s5\widctlpar \f0\fs24\tqr\tldot\tx8640 \sbasedon0\snext0 TOC 1;}
+{\s6\widctlpar \f0\fs20\tqr\tldot\tx8640 \sbasedon0\snext0 Index 1;}}
+\par {\qc {\f0\fs48 {\b \par Packfile format information. 
+\par}\par}\par}\brdrb\brdrs\brdrw15\brsp20 \par \pard \par 
+\par {\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v Contents}Contents\par }
+\par 
+{\field{\*\fldinst TOC \\t "Heading 1" }{\fldrslt {\b\i\ul\fs24\cf2 Update this field to generate the table of contents.}}}
+\par \par \par {\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v Introduction and scope}Introduction and scope\par }
+This document describes the format of Allegro's packfiles from a 
+decompression point of view. It does not describe how to do the 
+compression (read the source, or ask Google about LZSS). 
+\par \par file.c says "This compression algorithm is based on the ideas of Lempel 
+and Ziv, with the modifications suggested by Storer and Szymanski.", if 
+that means anything to you. 
+\par {\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v Packfile signature}Packfile signature\par }
+All compressed packfiles begin with a four byte signature "slh!" (ASCII), 
+which in hexadecimal is 0x73, 0x6C, 0x68, 0x21 (in that order). 
+\par \par Another form of packfiles are uncompressed packfiles, which begin with the 
+four byte signature "slh." (ASCII), in hexadecimal 0x73, 0x6C, 0x68, 0x2B. 
+The rest of the file is then completely raw. Uncompressed packfiles will 
+not be discussed further. 
+\par {\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v Format and decompression algorithm}Format and decompression algorithm\par }
+Decompression requires a ring buffer of 4096 bytes and a ring index (which 
+indexes into the ring buffer). The ring index starts at 4078, assuming 
+0-based indices. New bytes may be stored into in the position in the ring 
+buffer that the index points to. When a byte is stored, the index is 
+incremented by one, wrapping around to zero as necessary. 
+\par \par Packfiles must be decompressed sequentially. The first byte following the 
+signature in the packfile is the "flags" byte, which determines how the 
+following "tokens" in the file are to be interpreted. 
+\par \par Bit 1 (the least significant bit) corresponds to the first token following 
+the flags byte. Bit 2 corresponds to the second token, etc. After every 
+eight tokens, there is another flag byte and another eight tokens, and so 
+on, until the end of file. 
+\par \par If the bit I of the flags byte is set, then token I is a single byte to be 
+sent to the output. In addition, it must put onto the ring buffer and the 
+ring index incremented. 
+\par \par Otherwise, if bit I of the flags byte is not set, then token I is a two 
+byte sequence containing an index and a length. The index is the first 
+byte OR'd together with the higher 4 bits of the second byte as the higher 
+order bits, thus making a 12-bit unsigned number (0-4095). The length is 
+the lower 4 bits of the second byte, plus 3. 
+In less hand-wavy C syntax: 
+\par {\s1 \f1\fs18 
+\par       index  = byte1 | ((byte2 & 0xF0) << 4);
+\par       length = (byte2 & 0x0F) + 3;
+\par }\par Then, "length" number of bytes from the ring buffer, starting at "index", 
+are to be sent to the output. In addition, all these bytes must be put 
+onto the ring buffer, and the ring buffer incremented accordingly. 
+\par \par Decompression ends at the end of the file. There is no end-of-file 
+marker. If the number of tokens is not a multiple of eight, the unused 
+bits in the latest flags byte are always zero. 
+\par {\s2 \f0\fs48\sa600\pagebb\keepn\ul {\xe\v Summary}Summary\par }
+In brief, compressed packfiles take the form: 
+\par {\s1 \f1\fs18 
+\par       signature -- 4 bytes
+\par 
+\par       flags     -- 1 byte
+\par       token 1   -- each token 1 or 2 bytes
+\par       token 2
+\par        ...
+\par       token 8
+\par       flags
+\par        ...
+\par       (repeat flags and tokens 1-8 until EOF)
+\par }\par \par \par }
