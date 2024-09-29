@@ -17,11 +17,16 @@
 
 
 #include <allegro.h>
-
+#include <stdbool.h>
+#include <stdlib.h>
 
 #define NUM_VERTICES         8      /* a cube has eight corners */
 #define NUM_FACES            6      /* a cube has six faces */
 #define NUM_SHAPES           3      /* the paddles and the cube */
+
+#define LEFT_PADDLE 0
+#define RIGHT_PADDLE 1
+#define CUBE 2
 
 #define FIXED_1 (1 << 16)
 
@@ -90,7 +95,6 @@ Quad cube_faces[] = {
     { points,  9, 10, 14, 13 }
 };
 
-
 Shape shapes[NUM_SHAPES];          /* a list of shapes */
 
 /* somewhere to put translated vertices */
@@ -104,75 +108,92 @@ void init_shapes(void)
     int c;
 
     /* Left paddle */
-    shapes[0].quads = paddle_faces;
-    shapes[0].x = itofix(-164);
-    shapes[0].y = itofix(0);
-    shapes[0].z = 192 << 16;
-    shapes[0].rx = 0;
-    shapes[0].ry = 0;
-    shapes[0].rz = 0;
-    shapes[0].dy = ((AL_RAND() & 255) - 8) << 12;
-    shapes[0].drx = 0;
-    shapes[0].dry = 0;
-    shapes[0].drz = 0;
+    shapes[LEFT_PADDLE].quads = paddle_faces;
+    shapes[LEFT_PADDLE].x = itofix(-164);
+    shapes[LEFT_PADDLE].y = itofix(0);
+    shapes[LEFT_PADDLE].z = 192 << 16;
+    shapes[LEFT_PADDLE].rx = 0;
+    shapes[LEFT_PADDLE].ry = 0;
+    shapes[LEFT_PADDLE].rz = 0;
+    shapes[LEFT_PADDLE].dy = ((AL_RAND() & 255) - 8) << 12;
+    shapes[LEFT_PADDLE].drx = 0;
+    shapes[LEFT_PADDLE].dry = 0;
+    shapes[LEFT_PADDLE].drz = 0;
 
     /* Right paddle */
-    shapes[1].quads = paddle_faces;
-    shapes[1].x = itofix(164);
-    shapes[1].y = itofix(0);
-    shapes[1].z = 192 << 16;
-    shapes[1].rx = 0;
-    shapes[1].ry = 0;
-    shapes[1].rz = 0;
-    shapes[1].dy = ((AL_RAND() & 255) - 8) << 12;
-    shapes[1].drx = 0;
-    shapes[1].dry = 0;
-    shapes[1].drz = 0;
+    shapes[RIGHT_PADDLE].quads = paddle_faces;
+    shapes[RIGHT_PADDLE].x = itofix(164);
+    shapes[RIGHT_PADDLE].y = itofix(0);
+    shapes[RIGHT_PADDLE].z = 192 << 16;
+    shapes[RIGHT_PADDLE].rx = 0;
+    shapes[RIGHT_PADDLE].ry = 0;
+    shapes[RIGHT_PADDLE].rz = 0;
+    shapes[RIGHT_PADDLE].dy = ((AL_RAND() & 255) - 8) << 12;
+    shapes[RIGHT_PADDLE].drx = 0;
+    shapes[RIGHT_PADDLE].dry = 0;
+    shapes[RIGHT_PADDLE].drz = 0;
 
     /* Cube */
-    shapes[2].quads = cube_faces;
-    shapes[2].x = itofix(0);
-    shapes[2].y = itofix(0);
-    shapes[2].z = 192 << 16;
-    shapes[2].rx = 0;
-    shapes[2].ry = 0;
-    shapes[2].rz = 0;
-    shapes[2].dx = itofix(4);
-    shapes[2].dy = itofix(10);
-    shapes[2].drx = 0;
-    shapes[2].dry = 0;
-    shapes[2].drz = 0;
+    shapes[CUBE].quads = cube_faces;
+    shapes[CUBE].x = itofix(0);
+    shapes[CUBE].y = itofix(0);
+    shapes[CUBE].z = 192 << 16;
+    shapes[CUBE].rx = 0;
+    shapes[CUBE].ry = 0;
+    shapes[CUBE].rz = 0;
+    shapes[CUBE].dx = itofix(-2);
+    shapes[CUBE].dy = ftofix(3.5);
+    shapes[CUBE].drx = 0;
+    shapes[CUBE].dry = 0;
+    shapes[CUBE].drz = 0;
 }
 
+void animate_paddle(int i) {
+    if ((shapes[i].y < itofix(164) || shapes[i].dy < 0) &&
+    (shapes[i].y > itofix(-164) || shapes[i].dy > 0))
+        shapes[i].y += shapes[i].dy;
 
+    if ((shapes[i].x < itofix(164) || shapes[i].dx < 0) ||
+    (shapes[i].x > itofix(-164) || shapes[i].dx > 0))
+        shapes[i].x += shapes[i].dx;
+
+    shapes[i].rx += shapes[i].drx;
+    shapes[i].ry += shapes[i].dry;
+    shapes[i].rz += shapes[i].drz;
+}
+
+void animate_cube(void) {
+    if (shapes[CUBE].y > itofix(164)) {
+        shapes[CUBE].dy = itofix(-5);
+    } else if (shapes[CUBE].y < itofix(-164)) {
+        shapes[CUBE].dy = itofix(5);
+    }
+
+    shapes[CUBE].x += shapes[CUBE].dx;
+    shapes[CUBE].y += shapes[CUBE].dy;
+
+    shapes[CUBE].rx += shapes[CUBE].drx;
+    shapes[CUBE].ry += shapes[CUBE].dry;
+    shapes[CUBE].rz += shapes[CUBE].drz;
+}
 
 /* update shape positions */
-void animate_shapes(void)
-{
-    int c;
-    for (c=0; c < NUM_SHAPES; c++) {
-        shapes[c].y += shapes[c].dy;
-        shapes[c].x += shapes[c].dx;
-
-        if ((shapes[c].y > itofix(164)) ||
-        (shapes[c].y < itofix(-172)))
-            shapes[c].dy = -shapes[c].dy;
-
-        if ((shapes[c].x > itofix(164)) ||
-        (shapes[c].x < itofix(-164)))
-            shapes[c].dx = -shapes[c].dx;
-    
-        shapes[c].rx += shapes[c].drx;
-        shapes[c].ry += shapes[c].dry;
-        shapes[c].rz += shapes[c].drz;
-    }
+void animate_shapes(void) {
+    animate_paddle(LEFT_PADDLE);
+    animate_paddle(RIGHT_PADDLE);
+    animate_cube();
 }
 
+void reset(void) {
+    shapes[LEFT_PADDLE].y = 0;
+    shapes[RIGHT_PADDLE].y = 0;
 
+    shapes[CUBE].x = 0;
+    shapes[CUBE].y = 0;
+}
 
 /* translate shapes from 3d world space to 2d screen space */
-void project_shapes(void)
-{
+void project_shapes(void) {
     int c, d;
     MATRIX matrix;
     VTX *outpoint = output_points;
@@ -233,8 +254,6 @@ int quad_cmp(const void *e1, const void *e2)
     return d2 - d1;
 }
 
-
-
 /* draw the shapes calculated by project_shapes() */
 void draw_shapes(BITMAP *b)
 {
@@ -262,19 +281,43 @@ void draw_shapes(BITMAP *b)
     }
 }
 
+void min_max(int shape, fixed *min_x, fixed *min_y, fixed *max_x, fixed *max_y) {
+    int width, height;
+    if (shape == LEFT_PADDLE || shape == RIGHT_PADDLE) {
+        width = 6;
+        // we lie a little bit on the collisions to make it seem more fair :3
+        height = 48;
+    } else {
+        width = 6;
+        height = 6;
+    }
 
+    *min_y = shapes[shape].y - itofix(height / 2);
+    *min_x = shapes[shape].x - itofix(width / 2);
+    *max_y = *min_y + itofix(height);
+    *max_x = *min_x + itofix(width);
+}
+
+bool paddle_contact(int paddle) {
+    // get the minimum and maximum points of the paddle
+    fixed px_min, py_min, px_max, py_max;
+    min_max(paddle, &px_min, &py_min, &px_max, &py_max);
+
+    // get the minimum and maximum points of the cube
+    fixed cx_min, cy_min, cx_max, cy_max;
+    min_max(CUBE, &cx_min, &cy_min, &cx_max, &cy_max);
+
+    return !(cx_max < px_min || cx_min > px_max || cy_max < py_min || cy_min > py_max);
+}
 
 /* RGB -> color mapping table. Not needed, but speeds things up */
 RGB_MAP rgb_table;
-
 
 /* lighting color mapping table */
 COLOR_MAP light_table;
 
 /* transparency color mapping table */
 COLOR_MAP trans_table;
-
-
 
 int main(void)
 {
@@ -302,10 +345,11 @@ int main(void)
         pal[c].g = pal[c].b = 0;
     }
 
-    /* make a green gradient */
+    /* make a teal gradient */
     for (c=96; c<128; c++) {
+        pal[c].b = (c-96)*2;
+        pal[c].r = 0;
         pal[c].g = (c-96)*2;
-        pal[c].r = pal[c].b = 0;
     }
 
     /* set up a greyscale in the top half of the palette */
@@ -347,6 +391,14 @@ int main(void)
 
     last_retrace_count = retrace_count;
 
+    bool just_contacted = false;
+
+    unsigned int left = 0;
+    unsigned int right = 0;
+
+    char left_buffer[10];
+    char right_buffer[10];
+
     for (;;) {
         clear_bitmap(buffer);
 
@@ -358,12 +410,52 @@ int main(void)
         project_shapes();
         draw_shapes(buffer);
 
-        vsync();
-        blit(buffer, screen, 0, 0, 0, 0, SCREEN_W, SCREEN_H); 
+        itoa(left, left_buffer, 10);
+        textout_centre_ex(buffer, font, left_buffer, 6, 6, 127, -1);
 
-        if (keypressed()) {
-            if ((readkey() >> 8) == KEY_ESC)
-                break;
+        itoa(right, right_buffer, 10);
+        textout_centre_ex(buffer, font, right_buffer, SCREEN_W-6, 6, 95, -1);
+
+        vsync();
+        blit(buffer, screen, 0, 0, 0, 0, SCREEN_W, SCREEN_H);
+
+        if ((paddle_contact(LEFT_PADDLE) || paddle_contact(RIGHT_PADDLE)) && !just_contacted) {
+            shapes[CUBE].dx = -shapes[CUBE].dx;
+            just_contacted = true;
+        } else {
+            just_contacted = false;
+        }
+
+        if (shapes[CUBE].x < itofix(-172)) {
+            right += 1;
+            reset();
+        } else if (shapes[CUBE].x > itofix(172)) {
+            left += 1;
+            reset();
+        }
+
+        if (keyboard_needs_poll()) {
+            poll_keyboard();
+        }
+
+        if (key[KEY_W]) {
+            shapes[LEFT_PADDLE].dy = itofix(-3);
+        } else if (key[KEY_S]) {
+            shapes[LEFT_PADDLE].dy = itofix(3);
+        } else {
+            shapes[LEFT_PADDLE].dy = 0;
+        }
+
+        if (key[KEY_UP]) {
+            shapes[RIGHT_PADDLE].dy = itofix(-3);
+        } else if (key[KEY_DOWN]) {
+            shapes[RIGHT_PADDLE].dy = itofix(3);
+        } else {
+            shapes[RIGHT_PADDLE].dy = 0;
+        }
+
+        if (key[KEY_ESC]) {
+            break;
         }
     }
 
